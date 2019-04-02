@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2019 at 07:53 AM
+-- Generation Time: Apr 02, 2019 at 07:57 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -34,7 +34,7 @@ CREATE TABLE `users` (
   `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `last_updated` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `last_updated` datetime NOT NULL,
   `email_verif_hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `active` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -44,8 +44,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `username`, `password`, `created_at`, `last_updated`, `email_verif_hash`, `active`) VALUES
-(2, 'alex@test.com', 'alex', '$2y$10$RprcHh8GuSkhovdlxW3aXOdm60teQbI3A1Zco3HyTIq0SWH6MVTvC', '2019-04-01 23:08:34', '2019-04-01 23:08:34', '$2y$10$SyybWC/IW2zhHowKEmuCgeGQir2B9bpQtQLR4Ox3VMnBFKdPnxd7u', 0),
-(8, 'akritskiy@gmail.com', 'alex2', '$2y$10$ASCJlYR7Wr8phaiFQYlLP.JI3dQplAPiDW3iVRn.6o7rftb5Tu.32', '2019-04-02 03:05:52', '2019-04-02 03:05:52', '$2y$10$ypI6/A0f/xsA4nxbfrWatOwvUtA6YVyTqBYVqzZi5wl0zXw6uisZK', 1);
+(2, 'alex@test.com', 'alex', '$2y$10$RprcHh8GuSkhovdlxW3aXOdm60teQbI3A1Zco3HyTIq0SWH6MVTvC', '2019-04-01 23:08:34', '2019-04-01 19:08:34', '$2y$10$SyybWC/IW2zhHowKEmuCgeGQir2B9bpQtQLR4Ox3VMnBFKdPnxd7u', 0),
+(8, 'akritskiy@gmail.com', 'alex2', '$2y$10$ASCJlYR7Wr8phaiFQYlLP.JI3dQplAPiDW3iVRn.6o7rftb5Tu.32', '2019-04-02 03:05:52', '2019-04-01 23:05:52', '$2y$10$ypI6/A0f/xsA4nxbfrWatOwvUtA6YVyTqBYVqzZi5wl0zXw6uisZK', 1);
 
 --
 -- Indexes for dumped tables
