@@ -61,7 +61,7 @@
             
             Thanks for creating an account with Matchisuru. Go to the link below to verify your email and activate your Matchisuru account.
             
-            http://localhost/verify_email.php?email=$email&hash=$email_verif_hash
+            http://mat-php.herokuapp.com/verify_email.php?email=$email&hash=$email_verif_hash
 
             Take care,
             The Matchisuru Team
