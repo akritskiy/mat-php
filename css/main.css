@@ -1,0 +1,41 @@
+body {
+  background: #ffffff url('../images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+a {
+  color: #b8b6b4;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+#brand {
+  color: #b8b6b4;
+}
+
+#brand:hover {
+  color: #ffffff;
+  transition: 0.3s;
+}
+
+#navbar {
+  background-color: #171a21 !important;
+  height: 50px;
+  min-width: 400px;
+  margin-bottom: 40px;
+}
+
+nav ul a {
+  display: block;
+  padding: 0 15px;
+  cursor: pointer;
+}
+
+#info-div {
+  background-color: #ffffff;
+}
