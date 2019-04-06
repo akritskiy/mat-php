@@ -1,1 +1,5 @@
+# Dependencies
 /vendor
+
+# Keys
+/config/keys.php
