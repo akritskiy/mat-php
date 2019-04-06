@@ -1,8 +1,6 @@
 <?php
     require_once('../config/db.php');
 
-    // Note to self: need to add confirm password check
- 
     if (isset($_POST['register'])) {
         if (empty($_POST['email']) || empty($_POST['username']) || empty($_POST['password']) || empty($_POST['password2'])) {
             header("location: ../register.php?required");
@@ -74,8 +72,7 @@
         header("location: ../login.php?registration_successful");
         exit();
     }
-    else {
-        header("location: ../index.php");
-        exit();
-    }
+    
+    header("location: ../index.php");
+    exit();
 ?>

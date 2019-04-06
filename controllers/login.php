@@ -30,13 +30,12 @@
                 header("location: ../dashboard.php");
                 exit();
             }
-            else {
-                header("location: ../login.php?invalid_login");
-                exit();
-            }
+            
+            header("location: ../login.php?invalid_login");
+            exit();
         }
-    } else {
-        header("location: ../index.php");
-        exit();
     }
+    
+    header("location: ../index.php");
+    exit();
 ?>
