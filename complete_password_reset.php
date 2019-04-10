@@ -1,5 +1,12 @@
-<?php 
+<?php
+// start session
+// if uid is set, then... they're at the wrong URL, because they have no problems logging in... so... redirect them to the dashboard
 
+// get the email and hash from the URL
+// query the DB for the hash of the account w/ that email
+// check that the hash from the URL matches the hash in the DB
+// if it matches, allow the user to reset the password
+// if not, redirect them to the homepage or the login page and show an error msg if you feel like it
 ?>
 
 <?php require_once('partials/header.php'); ?>
