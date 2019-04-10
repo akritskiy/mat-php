@@ -35,3 +35,7 @@ nav ul a {
   padding: 0 15px;
   cursor: pointer;
 }
+
+.card-title {
+  background-color: #171a21 !important;
+}
