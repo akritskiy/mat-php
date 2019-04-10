@@ -1,39 +1,50 @@
 <?php
-    require_once('partials/header.php');
+  require_once('partials/header.php');
 
-    $err_empty_input = isset($_GET['username_or_email_required']);
-    $err_invalid_input = isset($_GET['invalid_reset_input']);
-    $success_reset_link_sent = isset($_GET['sent_reset_link']);
-
-    function displayResetMessages($err_invalid_input, $success_reset_link_sent, $err_empty_input) {
-        if ($err_invalid_input){
-            echo '<div class="alert alert-danger text-center"> The email or username you entered is invalid. Please enter another email or username.</div>';
-        }
-        if($success_reset_link_sent)
-        {
-            echo '<div class="alert alert-success text-center" The reset password link was sent to your email. Please check your email.</div>';
-        }
-        if($err_empty_input)
-        {
-            echo '<div class="alert alert-danger text-center" A username or email is required.</div>';
-        }
+  function displayResetMessages() {
+    if(isset($_GET['email_required']))
+    {
+      echo '<div class="alert alert-danger text-center">Email is required.</div>';
     }
+    if (isset($_GET['invalid_email']))
+    {
+      echo '<div class="alert alert-danger text-center">Please enter a valid email address.</div>';
+    }
+    if (isset($_GET['email_not_found']))
+    {
+      echo '<div class="alert alert-danger text-center">There is no account associated with that email. Please register.</div>';
+    }
+    if(isset($_GET['sent_reset_email']))
+    {
+      $email = $_GET['email'];
+      echo "<div class='alert alert-success text-center'>A password reset email was sent to $email.</div>";
+    }
+    if (isset($_GET['email_failed_to_send']))
+    {
+      echo "<div class='alert alert-danger text-center'>The password reset email failed to send. Please try again or contact support at matchisuru@gmail.com.</div>";
+    }
+    if (isset($_GET['db_failure']))
+    {
+      echo "<div class='alert alert-danger text-center'>There was an error processing your request. Please contact support at matchisuru@gmail.com.</div>";
+    }
+  }
 ?>
+
 <div class="container">
   <div class="row">
     <div class="col-lg-6 m-auto">
       <div class="card bg-dark">
-        <div class="card-title bg-primary text-white mt-5">
+        <div class="card-title text-white mt-5">
           <h3 class="text-center py-2">Reset Password</h3>
         </div>
 
-          <?php
-          displayResetMessages($err_invalid_input, $success_reset_link_sent, $err_empty_input);
-          ?>
+        <?php
+          displayResetMessages();
+        ?>
 
         <div class="card-body text-center">
           <form action="controllers/send_password_reset_email.php" method="POST">
-            <input type="text" name="reset" placeholder="username or email" class="form-control my-2">
+            <input type="text" name="email" placeholder="email" class="form-control my-2">
             <button class="btn btn-success mt-2" name="send-password-reset-email" class="pt-3">Send password reset email</button>
           </form>
         </div>
