@@ -1,5 +1,11 @@
 # Dependencies
 /vendor
 
-# Keys
-/config/keys.php
+# Keys - are tracked for production
+# /config/keys.php
+
+# Notes to self
+notes.txt
+
+# SQL dump
+matchisuru.sql
