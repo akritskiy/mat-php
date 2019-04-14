@@ -2,7 +2,7 @@
     require_once('keys.php');
 
     // Development:
-    $conn = mysqli_connect('localhost', 'root', $db_password, 'matchisuru');
+    $conn = mysqli_connect('localhost', 'root', '', 'matchisuru');
     if (mysqli_connect_errno()) {
         echo 'Failed to connect to MySQL: '.mysqli_connect_errno();
     }

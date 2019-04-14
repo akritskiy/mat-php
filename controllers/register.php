@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once('../config/db.php');
 
     if (isset($_POST['register'])) {
@@ -46,28 +47,30 @@
         $email_verif_hash = password_hash(rand(1, 10000), PASSWORD_DEFAULT);
         $query = "INSERT INTO users (email, username, password, email_verif_hash) VALUES ('$email', '$username', '$hash', '$email_verif_hash')";
         $result = mysqli_query($conn, $query);
+        $_SESSION['registration_email'] = $email;
+        $_SESSION['registration_username'] = $username;
+        $_SESSION['email_verif_hash'] = $email_verif_hash;
 
-        // Start send verif email
-        
         require_once('../config/swiftmailer.php');
 
-        $verif_email = (new Swift_Message('Email confirmation for Matchisuru'))
-            ->setFrom(['matchisuru@gmail.com' => 'Matchisuru Team'])
-            ->setTo([$email => 'New Matchisuru User'])
-            ->setBody("
+            // Start send verif email
+            $verif_email = (new Swift_Message('Email confirmation for Matchisuru'))
+                ->setFrom(['matchisuru@gmail.com' => 'Matchisuru Team'])
+                ->setTo([$email => 'New Matchisuru User'])
+                ->setBody("
             Dear $username,
             
             Thanks for creating an account with Matchisuru. Go to the link below to verify your email and activate your Matchisuru account.
             
-            http://mat-php.herokuapp.com/verify_email.php?email=$email&hash=$email_verif_hash
-
-            Take care,
+            http://mat-php.herokuapp.com/verify_email.php?email=$email&hash=$$email_verif_hash
+            
+            Take Care,
             The Matchisuru Team
             ");
-        
-        $result = $mailer->send($verif_email);
 
-        // End send verif email
+            $result = $mailer->send($verif_email);
+
+            // End send verif email
 
         header("location: ../login.php?registration_successful");
         exit();

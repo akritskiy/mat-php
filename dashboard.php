@@ -17,7 +17,7 @@
                         <p class="card-text">UID: <?php echo $_SESSION['uid'] ?></p>
                         <p class="card-text">Username: <?php echo $_SESSION['username'] ?></p>
                         <p class="card-text">Email: <?php echo $_SESSION['email'] ?></p>
-                        <a href="#" class="btn btn-primary">Link to somewhere</a>
+                        <a href="preferences_quiz.html" class="btn btn-primary">Start Player Match Up</a>
                     </div>
                 </div>
             </div>
