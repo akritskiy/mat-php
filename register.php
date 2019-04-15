@@ -4,26 +4,20 @@
     header("location: dashboard.php?already_logged_in");
   }
 
-  $err_required = isset($_GET['required']);
-  $err_invalid_email = isset($_GET['invalid_email']);
-  $err_username_already_exists = isset($_GET['username_already_exists']);
-  $err_email_already_has_account = isset($_GET['email_already_has_account']);
-  $err_confirm_password_not_match = isset($_GET['confirm_password_not_match']);
-
-  function displayMessages($err_required, $err_invalid_email, $err_username_already_exists, $err_email_already_has_account, $err_confirm_password_not_match) {
-    if ($err_required) {
+  function displayMessages() {
+    if (isset($_GET['required'])) {
       echo '<div class="alert alert-danger text-center">Username, email, password, and confirm password are required.</div>';
     }
-    if ($err_invalid_email) {
+    if (isset($_GET['invalid_email'])) {
       echo '<div class="alert alert-danger text-center">Please enter a valid email address.</div>';
     }
-    if ($err_username_already_exists) {
+    if (isset($_GET['username_already_exists'])) {
       echo '<div class="alert alert-danger text-center">That username is taken.</div>';
     }
-    if ($err_email_already_has_account) {
+    if (isset($_GET['email_already_has_account'])) {
       echo '<div class="alert alert-danger text-center">That email already has an account associated with it.</div>';
     }
-    if ($err_confirm_password_not_match) {
+    if (isset($_GET['confirm_password_not_match'])) {
       echo '<div class="alert alert-danger text-center">The password and confirm password must match.</div>';
     }
   }
@@ -37,9 +31,7 @@
           <h3 class="text-center py-2">Register</h3>
         </div>
 
-        <?php
-          displayMessages($err_required, $err_invalid_email, $err_username_already_exists, $err_email_already_has_account, $err_confirm_password_not_match);
-        ?>
+        <?php displayMessages(); ?>
 
         <div class="card-body">
           <form action="controllers/register.php" method="POST">
@@ -54,5 +46,5 @@
     </div>
   </div>
 </div>
- 
+
 <?php require_once('partials/footer.php'); ?>

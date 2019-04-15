@@ -1,6 +1,4 @@
 <?php
-  require_once('partials/header.php');
-
   function displayResetMessages() {
     if(isset($_GET['email_required']))
     {
@@ -27,8 +25,14 @@
     {
       echo "<div class='alert alert-danger text-center'>There was an error processing your request. Please contact support at matchisuru@gmail.com.</div>";
     }
+    if(isset($_GET['non_matching_hashes']))
+    {
+        echo '<div class="alert alert-danger text-center">An error occurred while resetting your password. Please try again.</div>';
+    }
   }
 ?>
+
+<?php require_once('partials/header.php'); ?>
 
 <div class="container">
   <div class="row">
@@ -38,18 +42,17 @@
           <h3 class="text-center py-2">Reset Password</h3>
         </div>
 
-        <?php
-          displayResetMessages();
-        ?>
+        <?php displayResetMessages(); ?>
 
         <div class="card-body text-center">
           <form action="controllers/send_password_reset_email.php" method="POST">
-            <input type="text" name="email" placeholder="email" class="form-control my-2">
-            <button class="btn btn-success mt-2" name="send-password-reset-email" class="pt-3">Send password reset email</button>
+            <input type="text" name="email" placeholder="Email" class="form-control my-2">
+            <button class="btn btn-success mt-2" name="send-password-reset-email" class="pt-3">Send Password Reset Email</button>
           </form>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 <?php require_once('partials/footer.php'); ?>

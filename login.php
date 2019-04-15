@@ -4,27 +4,24 @@
     header("location: dashboard.php?already_logged_in");
   }
 
-  $err_required = isset($_GET['required']);
-  $err_invalid_login = isset($_GET['invalid_login']);
-  $err_auth_required = isset($_GET['auth_required']);
-  $success_registration = isset($_GET['registration_successful']);
-  $err_not_verified = isset($_GET['not_verified']);
-  $success_verified = isset($_GET['verified']);
 
-  function displayMessages($err_required, $err_invalid_login, $err_auth_required, $success_registration, $err_not_verified, $success_verified) {
-    if ($err_required) {
+  function displayMessages() {
+    if (isset($_GET['required'])) {
       echo '<div class="alert alert-danger text-center">Username and password are required.</div>';
     }
-    if ($err_invalid_login) {
+    if (isset($_GET['invalid_login'])) {
       echo '<div class="alert alert-danger text-center">Incorrect username or password.</div>';
     }
-    if ($err_auth_required) {
+    if (isset($_GET['auth_required'])) {
       echo '<div class="alert alert-danger text-center">An account is required to view that content. Please login or register.</div>';
     }
-    if ($success_registration || $err_not_verified) {
+    if (isset($_GET['registration_successful'])) {
       echo '<div class="alert alert-success text-center">A verification email was sent to your email address. Verify your email to continue.</div>';
     }
-    if ($success_verified) {
+    if(isset($_GET['not_verified'])) {
+      echo '<div class="alert alert-danger text-center">A verification email was sent to your email address. Verify your email to continue.</div>';
+    }
+    if (isset($_GET['verified'])) {
       echo '<div class="alert alert-success text-center">Your email was verified. You are able to login now.</div>';
     }
   }
@@ -38,7 +35,7 @@
           <h3 class="text-center py-2">Login</h3>
         </div>
         
-        <?php displayMessages($err_required, $err_invalid_login, $err_auth_required, $success_registration, $err_not_verified, $success_verified); ?>
+        <?php displayMessages();?>
         
         <div class="card-body text-center">
           <form action="controllers/login.php" method="POST">

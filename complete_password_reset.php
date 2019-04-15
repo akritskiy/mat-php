@@ -1,12 +1,29 @@
 <?php
-// start session
-// if uid is set, then... they're at the wrong URL, because they have no problems logging in... so... redirect them to the dashboard
+    session_start();
 
-// get the email and hash from the URL
-// query the DB for the hash of the account w/ that email
-// check that the hash from the URL matches the hash in the DB
-// if it matches, allow the user to reset the password
-// if not, redirect them to the homepage or the login page and show an error msg if you feel like it
+    function displayPasswordResetPageMessages()
+    {
+        if(isset($_GET['URL_hash_and_db_hash_match']))
+        {
+            echo '<div class="alert alert-danger text-center">Please enter a new password.</div>';
+        }
+        if(isset($_GET['passwords_do_not_match']))
+        {
+            echo '<div class="alert alert-danger text-center">Passwords do not match.</div>';
+        }
+        if(isset($_GET['reset_successful']))
+        {
+            echo '<div class="alert alert-success text-center">Password has been reset. Please login.</div>';
+        }
+        if(isset($_GET['empty_fields']))
+        {
+            echo '<div class="alert alert-danger text-center">There must be a password entered for each field.</div>';
+        }
+        if(isset($_GET['reset_failed']))
+        {
+            echo '<div class="alert alert-danger text-center">Password reset failed due to database error. Please contact support at matchisuru@gmail.com.</div>';
+        }
+    }
 ?>
 
 <?php require_once('partials/header.php'); ?>
@@ -18,10 +35,13 @@
                 <div class="card-title text-white mt-5">
                     <h3 class="text-center py-2">Reset Password</h3>
                 </div>
+
+                <?php displayPasswordResetPageMessages(); ?>
+
                 <div class="card-body text-center">
                     <form action="controllers/update_password.php" method="POST">
-                        <input type="password" name="password" placeholder="password" class="form-control my-2">
-                        <input type="password" name="password2" placeholder="confirm password" class="form-control mb-3">
+                        <input type="password" name="password" placeholder="Password" class="form-control my-2">
+                        <input type="password" name="password2" placeholder="Confirm Password" class="form-control mb-3">
                         <button class="btn btn-success mt-2" name="reset-password" class="pt-3">Reset Password</button>
                     </form>
                 </div>

@@ -12,15 +12,14 @@
     header('location: index.php?verification_failed');
     exit();
   }
+    $query = "UPDATE users SET active='1' WHERE email='" .$URL_email. "'";
+    $result = mysqli_query($conn, $query);
 
-  if ($user['active'] == 1) {
+if ($user['active'] == 1) {
     header('location: login.php?verified');
     exit();
   }
 
-  $query = "UPDATE users SET active='1' WHERE email='" .$URL_email. "'";
-  $result = mysqli_query($conn, $query);
-  
   header('location: login.php?verified');
   exit();
 ?>

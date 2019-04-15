@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once('../config/db.php');
 
     if (isset($_POST['register'])) {
@@ -14,11 +15,11 @@
             header("location: ../register.php?confirm_password_not_match");
             exit();
         }
-        
+
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         $username = mysqli_real_escape_string($conn, $_POST['username']);
         $password = mysqli_real_escape_string($conn, $_POST['password']);
-        
+
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             header("location: ../register.php?invalid_email");
             exit();
@@ -32,7 +33,7 @@
             header("location: ../register.php?username_already_exists");
             exit();
         }
-        
+
         $query = "SELECT * FROM users WHERE email='" .$email. "'";
         $result = mysqli_query($conn, $query);
         $email_exists = mysqli_fetch_assoc($result);
@@ -47,32 +48,30 @@
         $query = "INSERT INTO users (email, username, password, email_verif_hash) VALUES ('$email', '$username', '$hash', '$email_verif_hash')";
         $result = mysqli_query($conn, $query);
 
-        // Start send verif email
-        
         require_once('../config/swiftmailer.php');
 
+        // Start send verif email
         $verif_email = (new Swift_Message('Email confirmation for Matchisuru'))
             ->setFrom(['matchisuru@gmail.com' => 'Matchisuru Team'])
             ->setTo([$email => 'New Matchisuru User'])
             ->setBody("
-            Dear $username,
-            
-            Thanks for creating an account with Matchisuru. Go to the link below to verify your email and activate your Matchisuru account.
-            
-            http://mat-php.herokuapp.com/verify_email.php?email=$email&hash=$email_verif_hash
+                Dear $username,
 
-            Take care,
-            The Matchisuru Team
-            ");
-        
+                Thanks for creating an account with Matchisuru. Go to the link below to verify your email and activate your Matchisuru account.
+
+                http://mat-php.herokuapp.com/verify_email.php?email=$email&hash=$$email_verif_hash
+
+                Take Care,
+                The Matchisuru Team"
+            );
+
         $result = $mailer->send($verif_email);
-
         // End send verif email
 
         header("location: ../login.php?registration_successful");
         exit();
     }
-    
+
     header("location: ../index.php");
     exit();
 ?>
