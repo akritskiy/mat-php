@@ -1,10 +1,10 @@
 <?php
-    require_once('partials/header.php');
+require_once('partials/header.php');
 
-    if (!isset($_SESSION['uid'])) {
-        header("location: login.php?auth_required");
-        exit();
-    }
+if (!isset($_SESSION['uid']) || !isset($_SESSION['email']) || !isset($_SESSION['username']) || !isset($_SESSION['password'])) {
+    header("location: login.php?auth_required");
+    exit();
+}
 ?>
 
 <div class="container">
@@ -23,3 +23,5 @@
         </div>
     </div>
 </div>
+
+<?php require_once('partials/footer.php'); ?>

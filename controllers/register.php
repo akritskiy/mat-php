@@ -59,7 +59,7 @@
 
                 Thanks for creating an account with Matchisuru. Go to the link below to verify your email and activate your Matchisuru account.
 
-                http://mat-php.herokuapp.com/verify_email.php?email=$email&hash=$$email_verif_hash
+                http://mat-php.herokuapp.com/controllers/verify_email.php?email=$email&hash=$$email_verif_hash
 
                 Take Care,
                 The Matchisuru Team"
@@ -74,4 +74,3 @@
 
     header("location: ../index.php");
     exit();
-?>
