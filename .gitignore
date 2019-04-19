@@ -2,7 +2,7 @@
 vendor
 
 # Keys
-config/keys.php
+# config/keys.php
 
 # Color pallette
 color pallette
