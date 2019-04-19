@@ -21,32 +21,35 @@
         $drink = mysqli_real_escape_string($conn, $_POST['pref-question-13']);
         $general_pref = mysqli_real_escape_string($conn, $_POST['pref-question-14']);
 
-        // Check if it is the first the player is taking the quiz. If yes, then stores player's answers into the database.
-        $user_taken_quiz_query = "SELECT id AND username FROM general_pref WHERE id='" .$id. "'AND username='" .$username. "'";
-        $quiz_status = $conn->query($user_taken_quiz_query);
-      //  $user_taken_quiz_result = mysqli_query($conn, $user_taken_quiz_query);
-    //    $user_taken_quiz = mysqli_fetch_assoc($user_taken_quiz_result);
+        // Check if it is the first time the player is taking the quiz. If yes, then stores player's answers into the database.
+        $quiz_query = "SELECT id AND username FROM general_pref WHERE id='" .$id. "'AND username='" .$username. "'";
+        $quiz_status = $conn->query($quiz_query);
 
-        if (!$quiz_status)
+
+       if (mysqli_fetch_row($quiz_status) == false)
         {
-            $query = "INSERT INTO general_pref (id, username, teammate_pref, describe_yourself, mad_while_playing, foul_language, age_group, strongest_trait, active_on_mic, game_pref, player_type, color, animal, book, drink, general_pref)
-                  VALUES('$id' , '$username', '$teammate_pref', '$describe_yourself', '$mad_while_playing', '$foul_language', '$age_group', '$strongest_trait', '$active_on_mic', '$game_pref', '$player_type', '$color', '$animal', '$book', '$drink','$general_pref')";
-        } // Updates player's answers into the database
+            $query = "INSERT INTO general_pref (id, username, teammate_pref, describe_yourself, mad_while_playing, foul_language, age_group, 
+                                  strongest_trait, active_on_mic, game_pref, player_type, color, animal, book, drink, general_pref)
+                      VALUES('$id' , '$username', '$teammate_pref', '$describe_yourself', '$mad_while_playing', '$foul_language', '$age_group', 
+                             '$strongest_trait', '$active_on_mic', '$game_pref', '$player_type', '$color', '$animal', '$book', '$drink','$general_pref')";
+        }
+        // Updates player's answers into the database
         else
         {
-            $query = "UPDATE general_pref SET teammate_pref='" .$teammate_pref.  "'AND describe_yourself='" .$describe_yourself.  "'AND mad_while_playing='" .$mad_while_playing. "'AND foul_language='" .$foul_language. "'AND age_group='" .$age_group.
-                "'AND strongest_trait='" .$strongest_trait. "'AND active_on_mic='" .$active_on_mic. "'AND game_pref='" .$game_pref. "'AND player_type='" .$player_type. "'AND color='" .$color. "'AND animal'" .$animal. "'AND book='" .$book.
-                "'AND drink='"  .$drink. "'AND general_pref='" .$general_pref. "'WHERE id='" .$id. "'AND username='" .$username. "'";
+            $query = "UPDATE general_pref SET teammate_pref='" .$teammate_pref. "', describe_yourself='" .$describe_yourself. "', mad_while_playing='" .$mad_while_playing.
+                "', foul_language='" .$foul_language.  "', age_group='" .$age_group. "', strongest_trait='" .$strongest_trait. "', active_on_mic='" .$active_on_mic. "', game_pref='" .$game_pref.
+                "', player_type='" .$player_type. "', color='" .$color. "', animal='" .$animal. "', book='" .$book. "', drink='"  .$drink. "', general_pref='" .$general_pref.
+                "'WHERE id='" .$id. "'AND username='" .$username. "'";
         }
 
 
-        //Returns true or false if the query has executed successfully, and notifies the player
-        $status = $conn->query($query);
-        if (!$status)
+        //Checks if the query has executed successfully, and notifies the player
+        $query_executed = mysqli_query($conn, $query);
+
+        if ($query_executed == false)
         {
             header('location: ../dashboard.php?could_not_update_preferences');
-            exit();
+            exit;
         }
-            header('location: ../dashboard.php?updated_preferences');
-
-?>
+             header('location: ../dashboard.php?updated_preferences');
+            exit;

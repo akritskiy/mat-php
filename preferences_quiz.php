@@ -1,9 +1,14 @@
+<?php require_once('partials/header.php'); ?>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 m-auto">
+            <div class="card">
+                <h5 class="card-header">General Preferences Questionnaire</h5>
+                <div class="card-body">
 
-<html lang="en">
-<body>
 <form action="controllers/general_preferences.php" method="POST" id="pref_page1">
         <!-- Question 1 -->
-        <h3>1. Which do you prefer?</h3>
+        <h5>1. Which do you prefer?</h5>
         <div>
             <input type="radio" name="pref-question-1" id="pref-question-1-a" value="Loud Teammates"/>
             <label for="pref-question-1-a">a. Loud Teammates</label>
@@ -14,7 +19,7 @@
         </div>
 
         <!-- Question 2 -->
-        <h3>2. Would you describe yourself as:</h3>
+        <h5>2. Would you describe yourself as:</h5>
         <div>
             <input type="radio" name="pref-question-2" id="pref-question-2-a" value="Loud Teammate"/>
             <label for="pref-question-2-a">a. Loud Teammate</label>
@@ -25,7 +30,7 @@
         </div>
 
         <!-- Question 3 -->
-        <h3>3. Do you often get mad while playing video games involving other players?</h3>
+        <h5>3. Do you often get mad while playing video games involving other players?</h5>
         <div>
             <input type="radio" name="pref-question-3" id="pref-question-3-a" value="Yes"/>
             <label for="pref-question-3-a">a. Yes</label>
@@ -36,7 +41,7 @@
         </div>
 
         <!-- Question 4 -->
-        <h3>4. Do you often use foul language?</h3>
+        <h5>4. Do you often use foul language?</h5>
         <div>
             <input type="radio" name="pref-question-4" id="pref-question-4-a" value="Yes"/>
             <label for="pref-question-4-a">a. Yes</label>
@@ -47,7 +52,7 @@
         </div>
 
         <!-- Question 5 -->
-        <h3>5. What is your current age group?</h3>
+        <h5>5. What is your current age group?</h5>
         <div>
             <input type="radio" name="pref-question-5" id="pref-question-5-a" value="12 - 16 years old"/>
             <label for="pref-question-5-a">a. 12 - 16 years old</label>
@@ -66,7 +71,7 @@
         </div>
 
         <!-- Question 6 -->
-        <h3>6. Which of these options would you consider to be your strongest trait?</h3>
+        <h5>6. Which of these options would you consider to be your strongest trait?</h5>
         <div>
             <input type="radio" name="pref-question-6" id="pref-question-6-a" value="Communication"/>
             <label for="pref-question-6-a">a. Communication</label>
@@ -85,7 +90,7 @@
         </div>
 
         <!-- Question 7 -->
-        <h3>7. Are you active on a mic?</h3>
+        <h5>7. Are you active on a mic?</h5>
         <div>
             <input type="radio" name="pref-question-7" id="pref-question-7-a" value="No"/>
             <label for="pref-question-7-a">a. No</label>
@@ -96,7 +101,7 @@
         </div>
 
         <!-- Question 8 -->
-        <h3>8. When gaming, which option do you prefer?</h3>
+        <h5>8. When gaming, which option do you prefer?</h5>
         <div>
             <input type="radio" name="pref-question-8" id="pref-question-8-a" value="Having Fun"/>
             <label for="pref-question-8-a">a. Having Fun</label>
@@ -107,7 +112,7 @@
         </div>
 
         <!-- Question 9 -->
-        <h3>9. Which do you consider yourself?</h3>
+        <h5>9. Which do you consider yourself?</h5>
         <div>
             <input type="radio" name="pref-question-9" id="pref-question-9-a" value="Leisure Player"/>
             <label for="pref-question-9-a">a. Leisure Player</label>
@@ -118,10 +123,9 @@
         </div>
 
         <!-- Question 10 -->
-        <h3>10. Please select a color from the choices:</h3>
+        <h5>10. Please select a color from the choices:</h5>
         <input type="radio" name="pref-question-10" id="pref-question-10-a" value="Red"/>
         <label for="pref-question-10-a">a. Red</label>
-        </div>
         <div>
             <input type="radio" name="pref-question-10" id="pref-question-10-b" value="Yellow"/>
             <label for="pref-question-10-b">b. Yellow</label>
@@ -135,7 +139,7 @@
             <label for="pref-question-10-d">d. Green</label>
         </div>
         <div>
-            <input type="radio" name="question-10" id="pref-question-10-e" value="Orange"/>
+            <input type="radio" name="pref-question-10" id="pref-question-10-e" value="Orange"/>
             <label for="pref-question-10-e">e. Orange</label>
         </div>
         <div>
@@ -144,10 +148,9 @@
         </div>
 
         <!-- Question 11 -->
-        <h3>11. Please select an animal from the choices:</h3>
+        <h5>11. Please select an animal from the choices:</h5>
         <input type="radio" name="pref-question-11" id="pref-question-11-a" value="Tiger"/>
         <label for="pref-question-11-a">a. Tiger</label>
-        </div>
         <div>
             <input type="radio" name="pref-question-11" id="pref-question-11-b" value="Turtle"/>
             <label for="pref-question-11-b">b. Turtle</label>
@@ -166,24 +169,24 @@
         </div>
 
         <!-- Question 12 -->
-        <h3>12. Please select a book type:</h3>
+        <h5>12. Please select a book type:</h5>
         <div>
             <input type="radio" name="pref-question-12" id="pref-question-12-a" value="Fiction"/>
             <label for="pref-question-12-a">a. Fiction</label>
         </div>
         <div>
-            <input type="radio" name="question-12" id="pref-question-12-b" value="Non-fiction"/>
+            <input type="radio" name="pref-question-12" id="pref-question-12-b" value="Non-fiction"/>
             <label for="question-12-b">b. Non-fiction</label>
         </div>
 
         <!-- Question 13 -->
-        <h3>13. Please select a drink:</h3>
+        <h5>13. Please select a drink:</h5>
         <div>
             <input type="radio" name="pref-question-13" id="pref-question-13-a" value="Tea"/>
             <label for="pref-question-13-a">a. Tea</label>
         </div>
         <div>
-            <input type="radio" name="question-13" id="question-13-b" value="Coffee"/>
+            <input type="radio" name="pref-question-13" id="question-13-b" value="Coffee"/>
             <label for="question-13-b">b. Coffee</label>
         </div>
         <div>
@@ -196,7 +199,7 @@
         </div>
 
         <!-- Question 14 -->
-        <h3>14. Please select one of the following:</h3>
+        <h5>14. Please select one of the following:</h5>
         <div>
             <input type="radio" name="pref-question-14" id="pref-question-14-a" value="Reality"/>
             <label for="pref-question-14-a">a. Reality</label>
@@ -211,5 +214,8 @@
         </div>
         <input type="submit" value="Submit"/>
 </form>
-</body>
-</html>
+        </div>
+    </div>
+</div>
+</div>
+</div>
