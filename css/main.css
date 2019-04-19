@@ -1,41 +1,76 @@
+/* Pallette URL: https://coolors.co/1d3e43-6a6353-262a21-9ccbbb-1d3422 */
+:root {
+	--japaneseIndigo: rgba(29, 62, 67, 1);
+	--wenge: rgba(106, 99, 83, 1); /* Wenge - a kinda gray-brown-ish color */
+	--eerieBlack: #1b1e18; /* one shade darker than Raisin Black, for the navbar gradient */
+	--raisinBlack: #262a21;
+	--turquoiseGreen: rgba(156, 203, 187, 1);
+	--mediumJungleGreen: rgba(29, 52, 34, 1);
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
 body {
-  background: #ffffff url('../images/background.jpg') no-repeat center center fixed;
-  background-size: cover;
+	background: #ffffff url('../images/background.jpg') no-repeat center center
+		fixed;
+	background-size: cover;
 }
 
-a {
-  color: #b8b6b4;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #ffffff;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-#brand {
-  color: #b8b6b4;
-}
-
-#brand:hover {
-  color: #ffffff;
-  transition: 0.3s;
-}
-
+/* Navbar */
 #navbar {
-  background-color: #171a21 !important;
-  height: 50px;
-  min-width: 400px;
-  margin-bottom: 40px;
+	background-image: linear-gradient(var(--eerieBlack), var(--raisinBlack));
+	margin-bottom: 56px;
+}
+#brand {
+	color: rgba(255, 255, 255, 0.6);
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+#brand:hover {
+	color: rgba(255, 255, 255, 0.75);
+}
+.nav-link {
+	color: rgba(255, 255, 255, 0.6);
 }
 
-nav ul a {
-  display: block;
-  padding: 0 15px;
-  cursor: pointer;
+/* Homepage */
+#homepageJumbotron {
+	background-color: rgba(255, 255, 255, 0.75);
+	padding-left: 5%;
+	padding-right: 5%;
+	margin-top: -56px;
+}
+.darkBtn {
+	background-color: var(--raisinBlack);
+	color: rgba(255, 255, 255, 0.6);
+}
+.darkBtn:hover,
+.darkBtn:focus {
+	background-color: var(--eerieBlack);
+	color: rgba(255, 255, 255, 0.5);
+	outline: 0;
+	transition: background-color 1s ease-out;
+	transition: color 1s ease-out;
 }
 
-.card-title {
-  background-color: #171a21 !important;
+/* A light card w/ dark header, currently used for login/registration cards */
+.lightCard {
+	background-color: rgba(255, 255, 255, 0.8);
+	border: none;
+}
+.lightCard input,
+.lightCard input:focus {
+	background-color: rgba(0, 0, 0, 0);
+	border-color: var(--raisinBlack);
+}
+.lightCard input:focus {
+	box-shadow: 0 0 0 0.1rem rgba(29, 52, 34, 0.25); /* Medium Jungle Green color, 0.25 opacity */
+}
+.lightCard .card-header {
+	background-color: var(--raisinBlack);
+	color: rgba(255, 255, 255, 0.75);
 }

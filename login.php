@@ -34,24 +34,29 @@ function displayMessages()
 }
 ?>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-6 m-auto">
-      <div class="card bg-dark">
-        <div class="card-title text-white mt-5">
-          <h3 class="text-center py-2">Login</h3>
-        </div>
-
-        <?php displayMessages(); ?>
-
-        <div class="card-body text-center">
-          <form action="controllers/login.php" method="POST">
-            <input type="text" name="username" placeholder="username or email" class="form-control my-2">
-            <input type="password" name="password" placeholder="password" class="form-control mb-3">
-            <button class="btn btn-success" name="login" class="pt-3">Login</button>
-            <div class="mt-2"><a href="forgot_password.php">Forgot password?</a></div>
-          </form>
-        </div>
+<div class="row">
+  <div class="col-lg-4 col-md-6 col-sm-10 mx-auto">
+    <div class="card lightCard">
+      <div class="card-header text-center">Login</div>
+      <div class="card-body">
+        <form action="controllers/login.php" method="POST">
+          <!-- Email -->
+          <div class="form-group">
+            <label for="emailOrUsername">Email address or username</label>
+            <input type="text" class="form-control" id="emailOrUsername" aria-describedby="emailHelp" placeholder="Enter username or email address" name="username">
+          </div>
+          <!-- Password -->
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+          </div>
+          <!-- Err Messages -->
+          <?php displayMessages(); ?>
+          <!-- Submit -->
+          <div class="text-center">
+            <button type="submit" class="btn darkBtn" name="login">Submit</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

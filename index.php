@@ -1,5 +1,10 @@
 <?php require_once('partials/header.php'); ?>
 
-<h4 class="display-2 text-center mt-5" style="margin-top:130px !important">matchisuru</h4>
+<div id="homepageJumbotron" class="jumbotron jumbotron-fluid">
+	<h1 class="display-4">The free video game matchmaking service.</h1>
+	<p class="lead">Like Match.com, but for gaming.</p>
+	<p>You provide your personality information and gaming preferences. We find people for you to play with during your next gaming sesh.</p>
+	<a class="btn btn-lg darkBtn" href="/register.php" role="button">Get Started</a>
+</div>
 
 <?php require_once('partials/footer.php'); ?>
