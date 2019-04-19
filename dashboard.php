@@ -33,7 +33,8 @@
                         <p class="card-text">UID: <?php echo $_SESSION['uid'] ?></p>
                         <p class="card-text">Username: <?php echo $_SESSION['username'] ?></p>
                         <p class="card-text">Email: <?php echo $_SESSION['email'] ?></p>
-                        <a href="preferences_quiz.php" class="btn btn-primary">Game General Preferences</a>
+                        <a href="preferences_questionnaire.php" class="btn btn-primary">General Preferences Questionnaire</a>
+                        <a href="games_questionnaire.php" class="btn btn-primary">Game Specific Questionnaire</a>
                     </div>
                 </div>
             </div>
