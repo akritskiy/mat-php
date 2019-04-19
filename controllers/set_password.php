@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once('../config/db.php');
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -16,11 +17,10 @@ if ($password != $password2) {
 }
 
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-require_once('../config/db.php');
-$query = "UPDATE users SET password='" .$hashed_password. "'WHERE email='" .$email. "'";
+$query = "UPDATE users SET password='" . $hashed_password . "'WHERE email='" . $email . "'";
 $result = mysqli_query($conn, $query); // Update queries return true if successful
 
-if($result == false){
+if ($result == false) {
   header('location: ../reset_password.php?db_failed');
   exit();
 }

@@ -1,6 +1,8 @@
 <?php
     session_start();
     require_once('../config/db.php');
+    require_once('../config/swiftmailer.php');
+
     $email = mysqli_real_escape_string($conn, $_POST['email']);
 
     if (empty($email)) {
@@ -36,8 +38,6 @@
     }
 
     // Start send password reset email
-    require_once('../config/swiftmailer.php');
-
     $password_reset_email = (new Swift_Message('Reset Password for Matchisuru'))
         ->setFrom(['matchisuru@gmail.com' => 'Matchisuru Team'])
         ->setTo([$user_email => 'Existing Matchisuru User'])
@@ -62,4 +62,3 @@
 
     header("location: ../forgot_password.php?sent_email");
     exit();
-?>
