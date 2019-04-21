@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60a459b3-536c-4229-a68e-ed1ba2ee9963" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test Cases Sprint 2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/general_preferences.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/general_preferences.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matchisuru.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/preferences_quiz.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -117,8 +110,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="20" />
-    <option name="y" value="23" />
+    <option name="x" value="654" />
+    <option name="y" value="24" />
     <option name="width" value="1257" />
     <option name="height" value="703" />
   </component>
@@ -188,15 +181,15 @@
       <workItem from="1555555284753" duration="5944000" />
       <workItem from="1555626994175" duration="8479000" />
       <workItem from="1555691981338" duration="4586000" />
-      <workItem from="1555884078202" duration="584000" />
+      <workItem from="1555884078202" duration="1728000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150659000" />
+    <option name="totallyTimeSpent" value="151803000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="20" y="23" width="1257" height="703" extended-state="0" />
+    <frame x="654" y="24" width="1257" height="703" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21002387" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -211,7 +204,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.23259494" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.5079114" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
