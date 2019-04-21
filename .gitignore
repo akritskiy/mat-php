@@ -3,3 +3,6 @@
 
 # Keys
 /config/keys.php
+
+# ide file
+/.idea

@@ -1,5 +1,0 @@
-Todos:
-1. Where Swiftmailer is used to send email, add a check to see if send was successful or not.
-2. Change all display err msg functions to have no params like the password_reset.php file.
-3. Fix SQL injection stuff in the whole app, just in case.
-4. Finish password reset functionality.
