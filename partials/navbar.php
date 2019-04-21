@@ -5,11 +5,14 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
+      <a href="#" class="nav-item nav-link">About</a>
       <?php
       if (isset($_SESSION['uid'])) {
         echo '
+        <a href="dashboard.php" class="nav-item nav-link">Dashboard</a>
+        <a href="#" class="nav-item nav-link">Profile</a>
         <form action="controllers/logout.php" method="POST">
-          <button type="submit" name="logout" class="nav-item nav-link">Logout</button>
+          <button type="submit" name="logout" class="nav-item nav-link logoutBtn">Logout</button>
         </form> ';
       } else {
         echo '

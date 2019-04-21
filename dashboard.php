@@ -2,26 +2,30 @@
 require_once('partials/header.php');
 
 if (!isset($_SESSION['uid']) || !isset($_SESSION['email']) || !isset($_SESSION['username']) || !isset($_SESSION['password'])) {
-    header("location: login.php?auth_required");
-    exit();
+  header("location: login.php?auth_required");
+  exit();
 }
 ?>
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-10 m-auto">
-            <div class="card">
-                <h5 class="card-header">Dashboard</h5>
-                <div class="card-body">
-                    <h5 class="card-title" style="background-color: #fff !important;">User Info</h5>
-                    <p class="card-text">UID: <?php echo $_SESSION['uid'] ?></p>
-                    <p class="card-text">Username: <?php echo $_SESSION['username'] ?></p>
-                    <p class="card-text">Email: <?php echo $_SESSION['email'] ?></p>
-                    <a href="#" class="btn btn-primary">Start Player Match Up - Coming Soon.</a>
-                </div>
-            </div>
+<div class="row">
+  <div class="col-lg-10 col-md-10 col-sm-12 mx-auto matchupNow">
+    <div class="card lightCard">
+      <div class="card-body text-center">
+        <p class="cardHeader">Match-up Now</p>
+        <div class="row text-center mb-4">
+          <div class="col-xs-12 col-sm-6 dashLinkDiv"><a href="#" class="btn darkBtn">Choose by game</a></div>
+          <div class="col-xs-12 col-sm-6"><a href="#" class="btn darkBtn">Choose by matchup type</a></div>
         </div>
+      </div>
     </div>
+  </div>
+  <div class="col-lg-10 col-md-10 col-sm-12 mx-auto updatesNews">
+    <div class="card lightCard">
+      <div class="card-body text-center">
+        <p class="cardHeader">Updates/News</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <?php require_once('partials/footer.php'); ?>
