@@ -1,7 +1,8 @@
 <?php
 require_once('partials/header.php');
 
-if (!isset($_SESSION['uid']) || !isset($_SESSION['email']) || !isset($_SESSION['username']) || !isset($_SESSION['password'])) {
+if (!isset($_SESSION['uid']) || !isset($_SESSION['email']) || !isset($_SESSION['username'])) {
+  // If any of [uid, email, username] are not set, redirect to login
   header("location: login.php?auth_required");
   exit();
 }

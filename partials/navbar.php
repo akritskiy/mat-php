@@ -7,7 +7,7 @@
     <div class="navbar-nav ml-auto">
       <a href="#" class="nav-item nav-link">About</a>
       <?php
-      if (isset($_SESSION['uid'])) {
+      if (isset($_SESSION['uid']) && isset($_SESSION['email']) && isset($_SESSION['username'])) {
         echo '
         <a href="dashboard.php" class="nav-item nav-link">Dashboard</a>
         <a href="#" class="nav-item nav-link">Profile</a>

@@ -1,7 +1,8 @@
 <?php
 require_once('partials/header.php');
 
-if (isset($_SESSION['uid'])) {
+if (isset($_SESSION['uid']) && isset($_SESSION['email']) && isset($_SESSION['username'])) {
+  // If all of [uid, email, username] are set, the user is already logged in... redir to dash
   header("location: dashboard.php?already_logged_in");
 }
 

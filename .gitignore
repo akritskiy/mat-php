@@ -1,12 +1,14 @@
 # Dependencies
-/vendor
+vendor
 
 # Keys
-/config/keys.php
+config/keys.php
 
 # Color pallette
-/color pallette
+color pallette
 
-# Notes and ref
+# Notes, ref, sandbox
 Notes.txt
-/reference
+reference
+sandbox.php
+profile.php
