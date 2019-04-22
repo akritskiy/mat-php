@@ -4,11 +4,10 @@ vendor
 # Keys
 config/keys.php
 
-# Color pallette
-color pallette
-
 # Notes, ref, sandbox
 Notes.txt
 reference
 sandbox.php
+
+# New files not ready to be pushed
 profile.php
