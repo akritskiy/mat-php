@@ -5,12 +5,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
-      <a href="#" class="nav-item nav-link">About</a>
       <?php
       if (isset($_SESSION['uid']) && isset($_SESSION['email']) && isset($_SESSION['username'])) {
         echo '
         <a href="dashboard.php" class="nav-item nav-link">Dashboard</a>
-        <a href="#" class="nav-item nav-link">Profile</a>
+        <a href="profile.php" class="nav-item nav-link">Profile</a>
         <form action="controllers/logout.php" method="POST">
           <button type="submit" name="logout" class="nav-item nav-link logoutBtn">Logout</button>
         </form> ';

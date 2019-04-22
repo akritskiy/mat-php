@@ -55,6 +55,12 @@ a:hover {
 .logoutBtn:focus {
 	outline: 0;
 }
+.navbar-toggler:focus {
+	outline-color: var(--turquoiseGreen);
+}
+.navbar-toggler.collapsed:focus {
+	outline: none;
+}
 
 /* Homepage */
 #homepageJumbotron {
@@ -85,6 +91,41 @@ a:hover {
 }
 .matchupNow a {
 	font-size: 1.25rem;
+}
+
+/* Profile */
+.profileCardBody {
+	padding: 0 2.5rem;
+}
+.profileDiv {
+	margin: 1.5rem 0;
+}
+.profileDiv h5 {
+	margin-bottom: 1rem;
+}
+.gravatar {
+	margin-bottom: 0.25rem;
+}
+.emailIcon {
+	vertical-align: -7px;
+	margin-right: 0.5rem;
+}
+.gravatarDiv {
+	text-align: center;
+}
+.gravatarDiv a {
+	text-decoration: underline;
+}
+.profileCardBody a.btn {
+	min-width: fit-content;
+	width: 11rem;
+}
+
+/* Icons */
+.profileCardBody i {
+	width: 16px;
+	margin-right: 0.5rem;
+	color: var(--japaneseIndigo);
 }
 
 /* A light card w/ dark header, currently used for login/registration cards */
@@ -134,6 +175,11 @@ a:hover {
 	/* Dashboard */
 	.dashLinkDiv {
 		margin: 20px 0;
+	}
+
+	/* Profile */
+	.profileCardBody {
+		text-align: center;
 	}
 
 	/* Light card */

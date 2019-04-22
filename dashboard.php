@@ -9,7 +9,7 @@ if (!isset($_SESSION['uid']) || !isset($_SESSION['email']) || !isset($_SESSION['
 ?>
 
 <div class="row">
-  <div class="col-lg-10 col-md-10 col-sm-12 mx-auto matchupNow">
+  <div class="col-lg-8 col-md-10 col-sm-12 mx-auto matchupNow">
     <div class="card lightCard">
       <div class="card-body text-center">
         <p class="cardHeader">Match-up Now</p>
@@ -20,7 +20,7 @@ if (!isset($_SESSION['uid']) || !isset($_SESSION['email']) || !isset($_SESSION['
       </div>
     </div>
   </div>
-  <div class="col-lg-10 col-md-10 col-sm-12 mx-auto updatesNews">
+  <div class="col-lg-8 col-md-10 col-sm-12 mx-auto updatesNews">
     <div class="card lightCard">
       <div class="card-body text-center">
         <p class="cardHeader">Updates/News</p>

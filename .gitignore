@@ -5,9 +5,7 @@ vendor
 config/keys.php
 
 # Notes, ref, sandbox
-Notes.txt
-reference
-sandbox.php
+_dev
 
 # New files not ready to be pushed
-profile.php
+# none
