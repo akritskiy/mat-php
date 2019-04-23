@@ -29,6 +29,8 @@ $reddit = '';
 if (isset($s['profile']['reddit'])) $reddit = $s['profile']['reddit'];
 $twitch = '';
 if (isset($s['profile']['twitch'])) $twitch = $s['profile']['twitch'];
+$youtube = '';
+if (isset($s['profile']['youtube'])) $youtube = $s['profile']['youtube'];
 $bio = '';
 if (isset($s['profile']['bio'])) $bio = $s['profile']['bio'];
 ?>
@@ -94,6 +96,11 @@ if (isset($s['profile']['bio'])) $bio = $s['profile']['bio'];
 							<div class="form-group">
 								<label for="twitch"><i class="fab fa-twitch"></i>Twitch</label>
 								<input type="text" class="form-control" id="twitch" value="<?php echo $twitch; ?>" name="twitch">
+							</div>
+							<!-- Youtube -->
+							<div class="form-group">
+								<label for="youtube"><i class="fab fa-youtube-square"></i>Youtube</label>
+								<input type="text" class="form-control" id="youtube" value="<?php echo $youtube; ?>" name="youtube">
 							</div>
 						</div>
 						<div class="col-xs-12 col-md-12 col-xl-12">

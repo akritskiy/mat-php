@@ -95,6 +95,7 @@ $insta = $profile['insta'];
 $twitter = $profile['twitter'];
 $reddit = $profile['reddit'];
 $twitch = $profile['twitch'];
+$youtube = $profile['youtube'];
 // gamer tags
 $steam = $profile['steam'];
 $ps = $profile['ps'];
@@ -132,6 +133,7 @@ $gamesPlayed = 'No games played.';
 							<?php if ($twitter) echo "<p><i class='fab fa-twitter-square'></i>$twitter</p>"; ?>
 							<?php if ($reddit) echo "<p><i class='fab fa-reddit-square'></i>$reddit</p>"; ?>
 							<?php if ($twitch) echo "<p><i class='fab fa-twitch'></i>$twitch</p>"; ?>
+							<?php if ($youtube) echo "<p><i class='fab fa-youtube-square'></i>$youtube</p>"; ?>
 						</div>
 					</div>
 					<!-- 2nd col -->

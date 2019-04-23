@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2019 at 07:57 AM
+-- Generation Time: Apr 23, 2019 at 10:56 PM
 -- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.3
+-- PHP Version: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,16 +25,45 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `profiles`
+--
+
+CREATE TABLE `profiles` (
+  `profileID` bigint(20) UNSIGNED NOT NULL,
+  `userID` bigint(20) UNSIGNED NOT NULL,
+  `dispName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `steam` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ps` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `xbox` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `nintendo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `fb` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `twitter` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `insta` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `reddit` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `twitch` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `youtube` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `bio` varchar(1500) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `profiles`
+--
+
+INSERT INTO `profiles` (`profileID`, `userID`, `dispName`, `steam`, `ps`, `xbox`, `nintendo`, `fb`, `twitter`, `insta`, `reddit`, `twitch`, `youtube`, `bio`) VALUES
+(2, 9, 'Alex Kritskiy', '', '', '', '', 'akritskiy', '', 'akritskiy', 'zinu92', '', '', 'Hello world.');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `last_updated` datetime NOT NULL,
   `email_verif_hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `active` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -43,13 +72,19 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `username`, `password`, `created_at`, `last_updated`, `email_verif_hash`, `active`) VALUES
-(2, 'alex@test.com', 'alex', '$2y$10$RprcHh8GuSkhovdlxW3aXOdm60teQbI3A1Zco3HyTIq0SWH6MVTvC', '2019-04-01 23:08:34', '2019-04-01 19:08:34', '$2y$10$SyybWC/IW2zhHowKEmuCgeGQir2B9bpQtQLR4Ox3VMnBFKdPnxd7u', 0),
-(8, 'akritskiy@gmail.com', 'alex2', '$2y$10$ASCJlYR7Wr8phaiFQYlLP.JI3dQplAPiDW3iVRn.6o7rftb5Tu.32', '2019-04-02 03:05:52', '2019-04-01 23:05:52', '$2y$10$ypI6/A0f/xsA4nxbfrWatOwvUtA6YVyTqBYVqzZi5wl0zXw6uisZK', 1);
+INSERT INTO `users` (`id`, `email`, `username`, `password`, `created_at`, `email_verif_hash`, `active`) VALUES
+(9, 'akritskiy@gmail.com', 'alex', '$2y$10$mxaX3JwwzYFDZuCTIKqwO.FwWStaEThozkrg9.L4LZNOAEib.RoRe', '2019-04-23 20:40:39', '$2y$10$jb8jK2uhZI.FYdlhqtTdmepGHnR.79lqlrasZgelxguC7Q4RPF.CC', 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `profiles`
+--
+ALTER TABLE `profiles`
+  ADD PRIMARY KEY (`profileID`),
+  ADD UNIQUE KEY `foreign key: links profile to users table by the uid` (`userID`) USING BTREE;
 
 --
 -- Indexes for table `users`
@@ -62,10 +97,26 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `profiles`
+--
+ALTER TABLE `profiles`
+  MODIFY `profileID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `profiles`
+--
+ALTER TABLE `profiles`
+  ADD CONSTRAINT `foreign key: userID in profile table -> id in users table` FOREIGN KEY (`userID`) REFERENCES `users` (`id`) ON DELETE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

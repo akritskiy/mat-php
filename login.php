@@ -11,6 +11,9 @@ function displayMessages()
   if (isset($_GET['required'])) {
     echo '<div class="alert alert-danger text-center">Username and password are required.</div>';
   }
+  if (isset($_GET['not_found'])) {
+    echo '<div class="alert alert-danger text-center">There is no account with that username/email. Please register.</div>';
+  }
   if (isset($_GET['invalid_login'])) {
     echo '<div class="alert alert-danger text-center">Incorrect username or password.</div>';
   }
