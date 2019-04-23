@@ -1,14 +1,14 @@
 <?php
 require_once('partials/header.php');
 
-if (!isset($_SESSION['uid']) || !isset($_SESSION['email']) || !isset($_SESSION['username'])) {
+$s = $_SESSION;
+if (!isset($s['uid']) || !isset($s['email']) || !isset($s['username'])) {
 	// If any of [uid, email, username] are not set, redirect to login
 	header("location: login.php?auth_required");
 	exit();
 }
 
-/**
- * Get either a Gravatar URL or complete image tag for a specified email address.
+/** Get either a Gravatar URL or complete image tag for a specified email address.
  *
  * @param string $email The email address
  * @param string $s Size in pixels, defaults to 80px [ 1 - 2048 ]
@@ -33,9 +33,7 @@ function get_gravatar($email, $s = 80, $d = 'mp', $r = 'g', $img = false, $atts 
 	return $url;
 }
 
-$grav_url = get_gravatar($_SESSION['user']['email'], '100', 'retro', 'pg');
-
-function displayDateCreated($datetime)
+function formatDateCreated($datetime)
 {
 	$year = substr($datetime, 0, 4);
 	$month = substr($datetime, 5, 2);
@@ -79,9 +77,36 @@ function displayDateCreated($datetime)
 			$month = 'December';
 			break;
 	}
-
-	echo "$month $day, $year";
+	return "$month $day, $year";
 }
+
+$user = $s['user']; // user object
+$profile = $s['profile']; // profile object
+
+// items to render to DOM
+$grav_url = get_gravatar($user['email'], '100', 'retro', 'pg');
+$dateCreated = formatDateCreated($user['created_at']);
+// display name
+$dispName = $user['username']; // defaults to username if display name not set
+if ($profile['dispName']) $dispName = $profile['dispName'];
+// social media
+$fb = $profile['fb'];
+$insta = $profile['insta'];
+$twitter = $profile['twitter'];
+$reddit = $profile['reddit'];
+$twitch = $profile['twitch'];
+// gamer tags
+$steam = $profile['steam'];
+$ps = $profile['ps'];
+$xbox = $profile['xbox'];
+$nintendo = $profile['nintendo'];
+$gamerTagsPlaceholder = null;
+if (!$steam && !$ps && !$xbox && !$nintendo) $gamerTagsPlaceholder = '<p>No gamer tags provided.</p>';
+// bio
+$bio = $profile['bio'];
+if (!$bio) $bio = 'No bio provided.';
+// games played
+$gamesPlayed = 'No games played.';
 ?>
 
 <div class="row">
@@ -95,29 +120,40 @@ function displayDateCreated($datetime)
 						<!-- Profile pic -->
 						<div class="profileDiv gravatarDiv">
 							<img src="<?php echo $grav_url; ?>" alt="Gravatar profile pic" class="gravatar" />
-							<p>@<?php echo $_SESSION['username']; ?></p>
+							<p><i class="fas fa-user-astronaut"></i><?php echo $dispName; ?></p>
 							<p>Set your profile picture through <a href="https://en.gravatar.com/">Gravatar</a>.</p>
 						</div>
-						<!-- Info -->
+						<!-- Social Media -->
 						<div class="profileDiv">
-							<h5>User Information</h5>
-							<p><i class="fas fa-envelope"></i><?php echo $_SESSION['email']; ?></p>
-							<p><i class="fab fa-facebook"></i>Link to fb</p>
-							<p><i class="fab fa-instagram"></i>Link to insta</p>
-							<p><i class="fab fa-twitter"></i>Link to twitter</p>
+							<h5>Social Media</h5>
+							<p><i class="fas fa-envelope-square"></i><?php echo $s['email']; ?></p>
+							<?php if ($fb) echo "<p><i class='fab fa-facebook'></i>$fb</p>"; ?>
+							<?php if ($insta) echo "<p><i class='fab fa-instagram'></i>$insta</p>"; ?>
+							<?php if ($twitter) echo "<p><i class='fab fa-twitter-square'></i>$twitter</p>"; ?>
+							<?php if ($reddit) echo "<p><i class='fab fa-reddit-square'></i>$reddit</p>"; ?>
+							<?php if ($twitch) echo "<p><i class='fab fa-twitch'></i>$twitch</p>"; ?>
 						</div>
 					</div>
 					<!-- 2nd col -->
 					<div class="col-sm-12 col-md-5">
+						<!-- Gamer Tags -->
+						<div class="profileDiv">
+							<h5>Gamer Tags</h5>
+							<?php if ($gamerTagsPlaceholder) echo $gamerTagsPlaceholder; ?>
+							<?php if ($steam) echo "<p><i class='fab fa-steam-square'></i>$steam</p>"; ?>
+							<?php if ($ps) echo "<p><i class='fab fa-playstation'></i>$ps</p>"; ?>
+							<?php if ($xbox) echo "<p><i class='fab fa-xbox'></i>$xbox</p>"; ?>
+							<?php if ($nintendo) echo "<p><i class='fab fa-nintendo-switch'></i>$nintendo</p>"; ?>
+						</div>
 						<!-- Bio -->
 						<div class="profileDiv">
 							<h5>Bio</h5>
-							<p>Cras accumsan enim in pulvinar pellentesque. Nam volutpat ante eros, dapibus venenatis enim dignissim non. Nulla ullamcorper urna vel nibh semper, sed varius sapien scelerisque. Pellentesque interdum placerat aliquam. Nam a neque eget nibh viverra pulvinar. Ut ut placerat nisi, et vehicula ex. Nulla libero lectus, sollicitudin eu sagittis a, maximus at velit.</p>
+							<p><?php echo $bio; ?></p>
 						</div>
-						<!-- Games player -->
+						<!-- Games played -->
 						<div class="profileDiv">
 							<h5>Games Played</h5>
-							<p>Dead by Daylight, Prop Hunt</p> <!-- placeholder -->
+							<p><?php echo $gamesPlayed; ?></p> <!-- placeholder -->
 						</div>
 					</div>
 					<!-- 3rd col -->
@@ -130,8 +166,8 @@ function displayDateCreated($datetime)
 						<!-- Account mgmt -->
 						<div class="profileDiv">
 							<h5>Account Management</h5>
-							<p>Account created: <?php displayDateCreated($_SESSION['user']['created_at']); ?></p>
-							<p><a href="#" class="btn darkBtn">Edit Profile</a></p>
+							<p>Account created: <?php echo $dateCreated; ?></p>
+							<p><a href="/edit_profile.php" class="btn darkBtn">Edit Profile</a></p>
 							<p><a href="#" class="btn darkBtn">Change Password</a></p>
 						</div>
 						<!-- Danger zone -->

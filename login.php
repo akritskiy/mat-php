@@ -32,6 +32,9 @@ function displayMessages()
   if (isset($_GET['success_password_reset'])) {
     echo '<div class="alert alert-success text-center">Your password was reset. You should be able to login now.</div>';
   }
+  if (isset($_GET['failed_to_send'])) {
+    echo '<div class="alert alert-danger text-center">Your email has not been verified, so you can\'t login. We tried to send you a new activation email, but it failed. Either the email address was incorrect, or the problem is on our end. Please try again or contact support.</div>';
+  }
 }
 ?>
 

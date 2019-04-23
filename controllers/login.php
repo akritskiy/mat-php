@@ -3,31 +3,35 @@ session_start();
 require_once('../config/db.php');
 require_once('../config/swiftmailer.php');
 
-if (isset($_POST['login'])) {
-    if (empty($_POST['username']) || empty($_POST['password'])) {
+$post = $_POST;
+if (isset($post['login'])) {
+    if (empty($post['username']) || empty($post['password'])) {
         header("location: ../login.php?required");
         exit();
     }
 
-    $username_or_email_input = mysqli_real_escape_string($conn, $_POST['username']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
-    $query = "SELECT * FROM users WHERE username='" . $username_or_email_input . "' OR email='" . $username_or_email_input . "'";
-    $result = mysqli_query($conn, $query);
-    $user = mysqli_fetch_assoc($result);
+    $username_or_email_input = mysqli_real_escape_string($conn, $post['username']);
+    $password = mysqli_real_escape_string($conn, $post['password']);
+    $q = "SELECT * FROM users
+        WHERE username='$username_or_email_input'
+        OR email='$username_or_email_input'
+        LIMIT 1;";
+    $res = mysqli_query($conn, $q);
+    $user = mysqli_fetch_assoc($res);
 
-    if (!$user) {
+    if (!$user) { // user not found
         header("location: ../login.php?invalid_login");
         exit();
     }
 
-    $email = $user['email'];
-    $email_verif_hash = $user['email_verif_hash'];
-    $username = $user['username'];
-    $active = $user['active'];
-
-    // Check if account active. If inactive, send a new verif email.
+    // user found
+    $active = $user['active']; // check if account active, if inactive send new verif email
     if ($active == 0) {
-        // Start send verif email
+        $username = $user['username'];
+        $email = $user['email'];
+        $email_verif_hash = $user['email_verif_hash'];
+
+        // start email
         $verif_email = (new Swift_Message('Email confirmation for Matchisuru'))
             ->setFrom(['matchisuru@gmail.com' => 'Matchisuru Team'])
             ->setTo([$email => 'New Matchisuru User'])
@@ -41,28 +45,40 @@ if (isset($_POST['login'])) {
                 Take Care,
                 The Matchisuru Team"
             );
+        $res = $mailer->send($verif_email);
+        // end email
 
-        $result = $mailer->send($verif_email);
-        // End send verif email
-
-        header('location: ../login.php?not_verified');
+        if ($res == 1) { // email sent
+            header('location: ../login.php?not_verified');
+            exit();
+        }
+        // not sent
+        header('location: ../login.php?failed_to_send');
         exit();
     }
 
     $check_password = password_verify($password, $user['password']);
-    if ($check_password == true) {
-        $_SESSION['uid'] = $user['id'];
+    if ($check_password == true) { // password correct
+        // get profile
+        $uid = $user['id'];
+        $q = "SELECT * FROM profiles WHERE userID='$uid' LIMIT 1;";
+        $res = mysqli_query($conn, $q);
+        $profile = mysqli_fetch_assoc($res);
+
+        $_SESSION['uid'] = $uid;
         $_SESSION['email'] = $user['email'];
         $_SESSION['username'] = $user['username'];
-        $_SESSION['password'] = $user['password'];
         $_SESSION['user'] = $user;
+        $_SESSION['profile'] = $profile;
+
         header("location: ../dashboard.php");
         exit();
     }
 
+    // password incorrect
     header("location: ../login.php?invalid_login");
     exit();
 }
-
+// not a POST request
 header("location: ../index.php");
 exit();
