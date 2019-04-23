@@ -227,7 +227,8 @@ a:hover {
   }
   .darkBtn,
   .jIndigoBtn {
-    width: 100%;
+    display: block;
+    width: 100% !important;
     margin: 0;
   }
   .jIndigoBtn {
