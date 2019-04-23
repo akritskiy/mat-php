@@ -27,7 +27,7 @@ function displayMessages()
 ?>
 
 <div class="row">
-  <div class="col-lg-4 col-md-6 col-sm-10 mx-auto">
+  <div class="col-lg-4 col-md-6 col-sm-12 mx-auto">
     <div class="card lightCard">
       <div class="card-header text-center">Register</div>
       <div class="card-body">

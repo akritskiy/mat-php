@@ -85,7 +85,7 @@ function displayDateCreated($datetime)
 ?>
 
 <div class="row">
-	<div class="col-xl-8 col-lg-10 col-md-12 mx-auto">
+	<div class="col-xl-8 col-lg-10 col-md-12 col-sm-12 mx-auto">
 		<div class="card lightCard">
 			<div class="card-header text-center">Profile</div>
 			<div class="card-body profileCardBody">

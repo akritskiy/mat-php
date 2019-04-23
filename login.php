@@ -36,7 +36,7 @@ function displayMessages()
 ?>
 
 <div class="row">
-  <div class="col-lg-4 col-md-6 col-sm-10 mx-auto">
+  <div class="col-lg-4 col-md-6 col-sm-12 mx-auto">
     <div class="card lightCard">
       <div class="card-header text-center">Login</div>
       <div class="card-body">
@@ -56,6 +56,7 @@ function displayMessages()
           <!-- Submit -->
           <div class="text-center">
             <button type="submit" class="btn darkBtn" name="login">Submit</button>
+            <div class="mt-3"><a href="forgot_password.php">Forgot password?</a></div>
           </div>
         </form>
       </div>

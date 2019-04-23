@@ -21,7 +21,7 @@ if ($hash != $db_hash) {
   exit();
 }
 
-function displayErrMessages()
+function displayMessages()
 {
   if (isset($_GET['required'])) {
     echo "<div class='alert alert-danger text-center'>Password and confirm password are required.</div>";
@@ -35,24 +35,31 @@ function displayErrMessages()
 }
 ?>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-6 m-auto">
-      <div class="card bg-dark">
-        <div class="card-title text-white mt-5">
-          <h3 class="text-center py-2">Reset Password</h3>
-        </div>
-
-        <?php displayErrMessages(); ?>
-
-        <div class="card-body text-center">
-          <form action="controllers/set_password.php" method="POST">
-            <input type="hidden" name="email" value="<?php echo $email; ?>">
-            <input type="password" name="password" placeholder="Password" class="form-control my-2">
-            <input type="password" name="password2" placeholder="Confirm Password" class="form-control mb-3">
-            <button class="btn btn-success mt-2" name="reset-password" class="pt-3">Submit</button>
-          </form>
-        </div>
+<div class="row">
+  <div class="col-lg-4 col-md-6 col-sm-12 mx-auto">
+    <div class="card lightCard">
+      <div class="card-header text-center">Enter Your New Password</div>
+      <div class="card-body">
+        <form action="controllers/set_password.php" method="POST">
+          <input type="hidden" name="email" value="<?php echo $email;
+                                                    ?>">
+          <!-- Password -->
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+          </div>
+          <!-- Password 2 -->
+          <div class="form-group">
+            <label for="password2">Confirm password</label>
+            <input type="password" class="form-control" id="password2" placeholder="Confirm password" name="password2">
+          </div>
+          <!-- Err Messages -->
+          <?php displayMessages(); ?>
+          <!-- Submit -->
+          <div class="text-center">
+            <button type="submit" class="btn darkBtn" name="reset-password">Submit</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

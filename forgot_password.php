@@ -4,7 +4,7 @@ if (isset($_SESSION['uid']) && isset($_SESSION['email']) && isset($_SESSION['use
   header("location: dashboard.php?already_logged_in");
 }
 
-function displayResetMessages()
+function displayMessages()
 {
   if (isset($_GET['email_required'])) {
     echo '<div class="alert alert-danger text-center">Email is required.</div>';
@@ -32,23 +32,25 @@ function displayResetMessages()
 
 <?php require_once('partials/header.php'); ?>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-6 m-auto">
-      <div class="card bg-dark">
-        <div class="card-title text-white mt-5">
-          <h3 class="text-center py-2">Forgot your password?</h3>
-        </div>
-        <p>Enter your email below, and we'll send you an email with instructions to reset your password.</p>
-
-        <?php displayResetMessages(); ?>
-
-        <div class="card-body text-center">
-          <form action="controllers/send_password_reset_email.php" method="POST">
-            <input type="text" name="email" placeholder="Email" class="form-control my-2">
-            <button class="btn btn-success mt-2" name="send-password-reset-email" class="pt-3">Submit</button>
-          </form>
-        </div>
+<div class="row">
+  <div class="col-lg-4 col-md-6 col-sm-12 mx-auto">
+    <div class="card lightCard">
+      <div class="card-header text-center">Forgot Your Password?</div>
+      <div class="card-body">
+        <p>No worries. Just enter your email below and we'll send you an email with a link to reset your password.</p>
+        <form action="controllers/send_password_reset_email.php" method="POST">
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email address" name="email">
+          </div>
+          <!-- Err Messages -->
+          <?php displayMessages(); ?>
+          <!-- Submit -->
+          <div class="text-center">
+            <button type="submit" class="btn darkBtn" name="send-password-reset-email">Submit</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

@@ -1,11 +1,11 @@
 # Dependencies
-vendor
+/vendor
 
 # Keys
-config/keys.php
+/config/keys.php
 
 # Notes, ref, sandbox
-_dev
+/_dev
 
 # New files not ready to be pushed
 # none
