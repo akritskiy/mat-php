@@ -1,6 +1,7 @@
 /* Pallette URL: https://coolors.co/1d3e43-6a6353-262a21-9ccbbb-1d3422 */
 :root {
   --japaneseIndigo: #1d3e43;
+  --msuGreen: #1b393d; /* MSU Green - one shade darker than Japanese Indigo */
   --wenge: #6a6353; /* Wenge - a kinda gray-brown-ish color */
   --eerieBlack: #1b1e18; /* one shade darker than Raisin Black, for the navbar gradient */
   --raisinBlack: #262a21;
@@ -80,6 +81,22 @@ a:hover {
   transition: background-color 1s ease-out;
   transition: color 1s ease-out;
   box-shadow: none;
+}
+.jIndigoBtn {
+  background-color: var(--japaneseIndigo);
+  color: rgba(255, 255, 255, 0.6);
+  margin-left: 0.5rem;
+}
+.jIndigoBtn:hover,
+.jIndigoBtn:focus {
+  background-color: var(--msuGreen);
+  color: rgba(255, 255, 255, 0.5);
+  transition: background-color 1s ease-out;
+  transition: color 1s ease-out;
+  box-shadow: none;
+}
+#homepageJumbotron a.btn {
+  width: 8.5rem;
 }
 
 /* Dashboard */
@@ -167,6 +184,9 @@ a:hover {
   #navbar {
     margin-bottom: 0;
   }
+  .navbar-brand {
+    margin: 0;
+  }
 
   /* Homepage */
   #homepageJumbotron {
@@ -205,7 +225,12 @@ a:hover {
   .cardBtnDiv {
     text-align: center;
   }
-  .darkBtn {
+  .darkBtn,
+  .jIndigoBtn {
     width: 100%;
+    margin: 0;
+  }
+  .jIndigoBtn {
+    margin-top: 1rem;
   }
 }
