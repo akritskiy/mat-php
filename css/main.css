@@ -112,7 +112,7 @@ a:hover {
 
 /* Profile */
 .profileCardBody {
-	padding: 0 2.5rem;
+	padding: 0 1.5rem;
 }
 .profileDiv {
 	margin: 1.5rem 0;
@@ -122,6 +122,8 @@ a:hover {
 }
 .gravatar {
 	margin-bottom: 0.25rem;
+	border: 0.4rem solid var(--raisinBlack);
+	border-radius: 50%;
 }
 .emailIcon {
 	vertical-align: -7px;
@@ -144,10 +146,10 @@ a:hover {
 	height: 16px;
 	width: 16px;
 	margin-right: 0.5rem;
-	color: var(--japaneseIndigo);
+	color: var(--raisinBlack);
 }
 
-/* A light card w/ dark header, currently used for login/registration cards */
+/* A light card w/ dark header */
 .lightCard {
 	background-color: rgba(255, 255, 255, 0.8);
 	border: none;
@@ -182,7 +184,7 @@ a:hover {
 		padding: 0;
 	}
 	.profileCardBody {
-		padding: 0 1rem;
+		padding: 0 1.5rem;
 	}
 
 	/* Navbar */

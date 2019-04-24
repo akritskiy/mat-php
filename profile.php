@@ -84,7 +84,7 @@ $user = $s['user']; // user object
 $profile = $s['profile']; // profile object
 
 // items to render to DOM
-$grav_url = get_gravatar($user['email'], '100', 'retro', 'pg');
+$grav_url = get_gravatar($user['email'], '150', 'retro', 'pg');
 $dateCreated = formatDateCreated($user['created_at']);
 // display name
 $dispName = $user['username']; // defaults to username if display name not set
@@ -117,27 +117,26 @@ $gamesPlayed = 'No games played.';
 			<div class="card-body profileCardBody">
 				<div class="row">
 					<!-- 1st col -->
-					<div class="col-sm-12 col-md-3">
+					<div class="col-sm-12 col-md-4 text-center">
 						<!-- Profile pic -->
 						<div class="profileDiv gravatarDiv">
 							<img src="<?php echo $grav_url; ?>" alt="Gravatar profile pic" class="gravatar" />
 							<p><i class="fas fa-user-astronaut"></i><?php echo $dispName; ?></p>
 							<p>Set your profile picture through <a href="https://en.gravatar.com/">Gravatar</a>.</p>
 						</div>
-						<!-- Social Media -->
+						<!-- Email -->
 						<div class="profileDiv">
-							<h5>Social Media</h5>
+							<h5>Email</h5>
 							<p><i class="fas fa-envelope-square"></i><?php echo $s['email']; ?></p>
-							<?php if ($fb) echo "<p><i class='fab fa-facebook'></i>$fb</p>"; ?>
-							<?php if ($insta) echo "<p><i class='fab fa-instagram'></i>$insta</p>"; ?>
-							<?php if ($twitter) echo "<p><i class='fab fa-twitter-square'></i>$twitter</p>"; ?>
-							<?php if ($reddit) echo "<p><i class='fab fa-reddit-square'></i>$reddit</p>"; ?>
-							<?php if ($twitch) echo "<p><i class='fab fa-twitch'></i>$twitch</p>"; ?>
-							<?php if ($youtube) echo "<p><i class='fab fa-youtube-square'></i>$youtube</p>"; ?>
+						</div>
+						<!-- Bio -->
+						<div class="profileDiv">
+							<h5>Bio</h5>
+							<p><?php echo $bio; ?></p>
 						</div>
 					</div>
 					<!-- 2nd col -->
-					<div class="col-sm-12 col-md-5">
+					<div class="col-sm-12 col-md-4">
 						<!-- Gamer Tags -->
 						<div class="profileDiv">
 							<h5>Gamer Tags</h5>
@@ -147,10 +146,15 @@ $gamesPlayed = 'No games played.';
 							<?php if ($xbox) echo "<p><i class='fab fa-xbox'></i>$xbox</p>"; ?>
 							<?php if ($nintendo) echo "<p><i class='fab fa-nintendo-switch'></i>$nintendo</p>"; ?>
 						</div>
-						<!-- Bio -->
+						<!-- Social Media -->
 						<div class="profileDiv">
-							<h5>Bio</h5>
-							<p><?php echo $bio; ?></p>
+							<h5>Social Media</h5>
+							<?php if ($fb) echo "<p><i class='fab fa-facebook'></i>$fb</p>"; ?>
+							<?php if ($insta) echo "<p><i class='fab fa-instagram'></i>$insta</p>"; ?>
+							<?php if ($twitter) echo "<p><i class='fab fa-twitter-square'></i>$twitter</p>"; ?>
+							<?php if ($reddit) echo "<p><i class='fab fa-reddit-square'></i>$reddit</p>"; ?>
+							<?php if ($twitch) echo "<p><i class='fab fa-twitch'></i>$twitch</p>"; ?>
+							<?php if ($youtube) echo "<p><i class='fab fa-youtube-square'></i>$youtube</p>"; ?>
 						</div>
 						<!-- Games played -->
 						<div class="profileDiv">
@@ -159,7 +163,7 @@ $gamesPlayed = 'No games played.';
 						</div>
 					</div>
 					<!-- 3rd col -->
-					<div class="col-md-4 col-sm-12">
+					<div class="col-md-4 col-sm-12 text-center">
 						<!-- Gaming preferences -->
 						<div class="profileDiv">
 							<h5>Gaming Preferences</h5>
