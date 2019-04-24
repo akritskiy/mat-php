@@ -74,6 +74,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `username`, `password`, `created_at`, `email_verif_hash`, `active`) VALUES
 (9, 'akritskiy@gmail.com', 'alex', '$2y$10$mxaX3JwwzYFDZuCTIKqwO.FwWStaEThozkrg9.L4LZNOAEib.RoRe', '2019-04-23 20:40:39', '$2y$10$jb8jK2uhZI.FYdlhqtTdmepGHnR.79lqlrasZgelxguC7Q4RPF.CC', 1);
+INSERT INTO `users` (`id`, `email`, `username`, `password`, `created_at`, `email_verif_hash`, `active`) VALUES
+(22, 'rparizi1@kennesaw.edu', 'rmp', '$2y$10$/Mr26KQW8vVH7v5B6KvGROVHziSYcK4RymcejFOWKwhDlR8GWE8ue', '2019-04-06 17:11:40', '$2y$10$95FpFwBj/tYun0/HdFMT3.ThY8E9elnH8.QF8YvRQqHASsEFF/HFW', 1);
 
 --
 -- Indexes for dumped tables
