@@ -41,8 +41,7 @@ function displayMessages()
       <div class="card-header text-center">Enter Your New Password</div>
       <div class="card-body">
         <form action="controllers/set_password.php" method="POST">
-          <input type="hidden" name="email" value="<?php echo $email;
-                                                    ?>">
+          <input type="hidden" name="email" value="<?php echo $email; ?>">
           <!-- Password -->
           <div class="form-group">
             <label for="password">Password</label>

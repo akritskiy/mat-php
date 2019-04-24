@@ -58,7 +58,7 @@ if (isset($_POST['register'])) {
 
         Thanks for creating an account with Matchisuru. Go to the link below to verify your email and activate your Matchisuru account.
 
-        http://mat-php.herokuapp.com/controllers/verify_email.php?email=$email&hash=$email_verif_hash
+        http://mat-php.herokuapp.com/controllers/verify_email.php?hash=$email_verif_hash&email=$email
 
         Take Care,
         The Matchisuru Team
