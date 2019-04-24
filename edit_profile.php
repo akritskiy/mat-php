@@ -108,7 +108,7 @@ if (isset($s['profile']['bio'])) $bio = $s['profile']['bio'];
 							<!-- Bio -->
 							<div class="form-group">
 								<label for="bio"><i class="fas fa-feather-alt"></i>Bio</label>
-								<textarea class="form-control" id="bio" value="<?php echo $bio; ?>" name="bio" rows="3"></textarea>
+								<textarea class="form-control" id="bio" name="bio" rows="3"><?php echo $bio; ?></textarea>
 							</div>
 							<!-- Submit -->
 							<div class="text-center">
