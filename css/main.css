@@ -4,9 +4,9 @@
 	--msuGreen: #1b393d; /* MSU Green - one shade darker than Japanese Indigo - used for btn hover/focus */
 	--wenge: #6a6353; /* Wenge - a kinda gray-brown-ish color */
 	--eerieBlack: #1b1e18; /* one shade darker than Raisin Black, for the navbar gradient and btn hover/focus */
-	--raisinBlack: #262a21;
+	--raisinBlack: #262a21; /* rgb(38, 42, 33) - used for shadow on profil pic */
 	--turquoiseGreen: #9ccbbb;
-	--mediumJungleGreen: #1d3422;
+	--mediumJungleGreen: rgb(29, 52, 34); /* #1d3422; */
 }
 
 * {
@@ -122,8 +122,9 @@ a:hover {
 }
 .gravatar {
 	margin-bottom: 0.25rem;
-	border: 0.4rem solid var(--raisinBlack);
+	border: 0.425rem solid var(--turquoiseGreen);
 	border-radius: 50%;
+	box-shadow: 1px 1px 3px rgb(29, 52, 34, 0.25);
 }
 .emailIcon {
 	vertical-align: -7px;

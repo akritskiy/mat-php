@@ -1,19 +1,20 @@
 <?php
 require_once('partials/header.php');
+require_once('config/db.php');
+$s = $_SESSION;
 
-if (isset($_SESSION['uid']) && isset($_SESSION['email']) && isset($_SESSION['username'])) {
-  // If all of [uid, email, username] are set, the user is already logged in... redir to dash
+// route guard
+if (isset($s['uid']) && isset($s['email']) && isset($s['username'])) {
+  // if [uid, email, username] are set, the user is already logged in -> redir to dash
   header("location: dashboard.php?already_logged_in");
+  exit();
 }
 
 $email = $_GET['email'];
 $hash = $_GET['hash'];
-
-require_once('config/db.php');
-
-$query = "SELECT * FROM users WHERE email='" . $email . "'";
-$result = mysqli_query($conn, $query);
-$user = mysqli_fetch_assoc($result);
+$q = "SELECT * FROM users WHERE email='$email';";
+$res = mysqli_query($conn, $q);
+$user = mysqli_fetch_assoc($res);
 $db_hash = $user['email_verif_hash'];
 
 if ($hash != $db_hash) {
