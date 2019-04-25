@@ -74,32 +74,32 @@ if (isset($s['profile']['bio'])) $bio = $s['profile']['bio'];
 							<h5>Social</h5>
 							<!-- Facebook -->
 							<div class="form-group">
-								<label for="fb"><i class="fab fa-facebook"></i>Facebook</label>
+								<label for="fb"><i class="fab fa-facebook"></i>Facebook<br><small>Enter the handle only: https://facebook.com/handle</small></label>
 								<input type="text" class="form-control" id="fb" value="<?php echo $fb; ?>" name="fb">
 							</div>
 							<!-- Instagram -->
 							<div class="form-group">
-								<label for="insta"><i class="fab fa-instagram"></i>Instagram</label>
+								<label for="insta"><i class="fab fa-instagram"></i>Instagram<br><small>Enter the handle only: https://instagram.com/handle</small></label>
 								<input type="text" class="form-control" id="insta" value="<?php echo $insta; ?>" name="insta">
 							</div>
 							<!-- Twitter -->
 							<div class="form-group">
-								<label for="twitter"><i class="fab fa-twitter-square"></i>Twitter</label>
+								<label for="twitter"><i class="fab fa-twitter-square"></i>Twitter<br><small>Enter the handle only: https://twitter.com/handle</small></label>
 								<input type="text" class="form-control" id="twitter" value="<?php echo $twitter; ?>" name="twitter">
 							</div>
 							<!-- Reddit -->
 							<div class="form-group">
-								<label for="reddit"><i class="fab fa-reddit-square"></i>Reddit</label>
+								<label for="reddit"><i class="fab fa-reddit-square"></i>Reddit<br><small>Enter the handle only: https://reddit.com/user/handle</small></label>
 								<input type="text" class="form-control" id="reddit" value="<?php echo $reddit; ?>" name="reddit">
 							</div>
 							<!-- Twitch -->
 							<div class="form-group">
-								<label for="twitch"><i class="fab fa-twitch"></i>Twitch</label>
+								<label for="twitch"><i class="fab fa-twitch"></i>Twitch<br><small>Enter the handle only: https://twitch.tv/handle</small></label>
 								<input type="text" class="form-control" id="twitch" value="<?php echo $twitch; ?>" name="twitch">
 							</div>
 							<!-- Youtube -->
 							<div class="form-group">
-								<label for="youtube"><i class="fab fa-youtube-square"></i>Youtube</label>
+								<label for="youtube"><i class="fab fa-youtube-square"></i>Youtube<br><small>Enter the handle only: https://youtube.com/user/handle</small></label>
 								<input type="text" class="form-control" id="youtube" value="<?php echo $youtube; ?>" name="youtube">
 							</div>
 						</div>

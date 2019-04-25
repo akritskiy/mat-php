@@ -149,12 +149,12 @@ $gamesPlayed = 'No games played.';
 						<!-- Social Media -->
 						<div class="profileDiv">
 							<h5>Social Media</h5>
-							<?php if ($fb) echo "<p><i class='fab fa-facebook'></i>$fb</p>"; ?>
-							<?php if ($insta) echo "<p><i class='fab fa-instagram'></i>$insta</p>"; ?>
-							<?php if ($twitter) echo "<p><i class='fab fa-twitter-square'></i>$twitter</p>"; ?>
-							<?php if ($reddit) echo "<p><i class='fab fa-reddit-square'></i>$reddit</p>"; ?>
-							<?php if ($twitch) echo "<p><i class='fab fa-twitch'></i>$twitch</p>"; ?>
-							<?php if ($youtube) echo "<p><i class='fab fa-youtube-square'></i>$youtube</p>"; ?>
+							<?php if ($fb) echo "<p><i class='fab fa-facebook'></i><a href='https://www.facebook.com/$fb'>$fb</a></p>"; ?>
+							<?php if ($insta) echo "<p><i class='fab fa-instagram'></i><a href='https://www.instagram.com/$insta'>$insta</a></p>"; ?>
+							<?php if ($twitter) echo "<p><i class='fab fa-twitter-square'></i><a href='https://www.twitter.com/$twitter'>$twitter</a></p>"; ?>
+							<?php if ($reddit) echo "<p><i class='fab fa-reddit-square'></i><a href='https://www.reddit.com/user/$reddit'>$reddit</a></p>"; ?>
+							<?php if ($twitch) echo "<p><i class='fab fa-twitch'></i><a href='https://www.twitch.tv/$twitch'>$twitch</a></p>"; ?>
+							<?php if ($youtube) echo "<p><i class='fab fa-youtube-square'></i><a href='https://www.youtube.com/user/$youtube'>$youtube</a></p>"; ?>
 						</div>
 						<!-- Games played -->
 						<div class="profileDiv">
