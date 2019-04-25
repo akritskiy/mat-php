@@ -108,6 +108,9 @@ $bio = $profile['bio'];
 if (!$bio) $bio = 'No bio provided.';
 // games played
 $gamesPlayed = 'No games played.';
+// messages
+$passwordChangedMsg = null;
+if (isset($_GET['password_changed'])) $passwordChangedMsg = "<div class='text-success'><small>Password changed.</small></div>";
 ?>
 
 <div class="row">
@@ -174,7 +177,8 @@ $gamesPlayed = 'No games played.';
 							<h5>Account Management</h5>
 							<p>Account created: <?php echo $dateCreated; ?></p>
 							<p><a href="/edit_profile.php" class="btn darkBtn">Edit Profile</a></p>
-							<p><a href="#" class="btn darkBtn">Change Password</a></p>
+							<p><a href="/change_password.php" class="btn darkBtn">Change Password</a></p>
+							<?php echo $passwordChangedMsg; ?>
 						</div>
 						<!-- Danger zone -->
 						<div class="profileDiv">
