@@ -6,8 +6,9 @@ $p = $_POST;
 // route guard
 if (!isset($p['reset-password']) && !isset($p['change-password'])) {
   // if neither POST['reset-password'] or POST ['change-password'] are set,
-  // this file was accessed via user typing the URL into address bar -> redir to index.php
-  header("location: ../index.php");
+  // this file was accessed via user typing the URL into address bar -> redir to dash
+  // if user is unauth, dash will redir to login
+  header("location: ../dashboard.php");
   exit();
 }
 

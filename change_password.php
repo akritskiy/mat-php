@@ -1,6 +1,5 @@
 <?php
 require_once('partials/header.php');
-require_once('config/db.php');
 
 // route guard
 $s = $_SESSION;

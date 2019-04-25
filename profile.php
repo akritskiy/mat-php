@@ -109,8 +109,10 @@ if (!$bio) $bio = 'No bio provided.';
 // games played
 $gamesPlayed = 'No games played.';
 // messages
+$profileUpdatedMsg = null;
+if (isset($_GET['updated'])) $profileUpdatedMsg = "<div class='alert alert-success text-center mx-auto' style='width: fit-content;'>Profile updated.</div>";
 $passwordChangedMsg = null;
-if (isset($_GET['password_changed'])) $passwordChangedMsg = "<div class='text-success'><small>Password changed.</small></div>";
+if (isset($_GET['password_changed'])) $passwordChangedMsg = "<div class='alert alert-success text-center mx-auto' style='width: fit-content;'>Password changed.</div>";
 ?>
 
 <div class="row">
@@ -173,17 +175,18 @@ if (isset($_GET['password_changed'])) $passwordChangedMsg = "<div class='text-su
 							<p><a href="#" class="btn darkBtn">Retake Gaming Preferences Quiz</a></p>
 						</div>
 						<!-- Account mgmt -->
-						<div class="profileDiv">
+						<div class="profileDiv text-center">
 							<h5>Account Management</h5>
 							<p>Account created: <?php echo $dateCreated; ?></p>
 							<p><a href="/edit_profile.php" class="btn darkBtn">Edit Profile</a></p>
+							<?php echo $profileUpdatedMsg; ?>
 							<p><a href="/change_password.php" class="btn darkBtn">Change Password</a></p>
 							<?php echo $passwordChangedMsg; ?>
 						</div>
 						<!-- Danger zone -->
 						<div class="profileDiv">
 							<h5>Danger Zone</h5>
-							<p><a href="#" class="btn darkBtn">Delete Account</a></p>
+							<p><a href="/delete_account.php" class="btn darkBtn">Delete Account</a></p>
 						</div>
 					</div>
 				</div>
