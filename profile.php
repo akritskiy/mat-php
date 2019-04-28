@@ -172,7 +172,7 @@ if (isset($_GET['password_changed'])) $passwordChangedMsg = "<div class='alert a
 						<!-- Gaming preferences -->
 						<div class="profileDiv">
 							<h5>Gaming Preferences</h5>
-							<p><a href="#" class="btn darkBtn">Retake Gaming Preferences Quiz</a></p>
+							<p><a href="/gp_quiz.php" class="btn darkBtn">Retake Gaming Preferences Quiz</a></p>
 						</div>
 						<!-- Account mgmt -->
 						<div class="profileDiv text-center">

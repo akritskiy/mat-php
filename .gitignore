@@ -4,8 +4,9 @@
 # Keys
 /config/keys.php
 
-# Notes, ref, sandbox
+# Dev stuff, notes, reference
 /_dev
+/_pui
 
 # New files not ready to be pushed
 # none
