@@ -19,7 +19,7 @@ $navLinksLoggedIn = '
 
 <nav id="navbar" class="navbar navbar-expand-md navbar-dark">
   <?php echo $navToggleBtn; ?>
-  <a id="brand" class="navbar-brand" href="index.php">Matchisuru</a>
+  <a id="brand" class="navbar-brand" href="index.php"><img id="logo" src="../images/logo.png"> Matchisuru</a>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
       <?php if (!$loggedIn) echo $navLinksLoggedOut; ?>

@@ -63,6 +63,12 @@ a:hover {
 .navbar-toggler.collapsed:focus {
   outline: none;
 }
+#logo {
+  height: 35px;
+  width: 35px;
+  opacity: 0.6;
+  vertical-align: -11px;
+}
 
 /* Homepage */
 #homepageJumbotron {
@@ -128,6 +134,11 @@ a:hover {
 }
 .genPrefCardBody button {
   margin-top: 0.5rem;
+}
+
+/* Select Game */
+.selectGameCardBody .form-check-inline {
+  margin-bottom: 1rem;
 }
 
 /* Profile */
