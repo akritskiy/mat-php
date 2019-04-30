@@ -58,13 +58,17 @@ function renderMatchesToDOM($res, $conn, $questions, $user_answers)
     foreach ($matchedOn as $q) {
       $questionText = $questions[$q];
       $user_answer = $user_answers[$q];
-      $scoreBreakdown = $scoreBreakdown . "<p>$questionText<br>You both chose: $user_answer</p>";
+      $playStyleNote = null;
+      if ($q == 5) {
+        $playStyleNote = "<br><small>We believe similar play styles clash, so matching on play style actually reduced your match score.</small>";
+      }
+      $scoreBreakdown = $scoreBreakdown . "<p>$questionText<br>You both chose: $user_answer $playStyleNote</p>";
     }
 
     if ($matchedOn_skillLevel) {
-      $scoreBreakdown = $scoreBreakdown . "<p>You also matched on skill-level.<br>You both said: $otherUser_skillLevel</p>";
+      $scoreBreakdown = $scoreBreakdown . "<p>You also matched on skill-level.<br>You both said: $otherUser_skillLevel<br><small>Skill-level is weighted very highly in our calculation.</small></p>";
     } else {
-      $scoreBreakdown = $scoreBreakdown . "<p>You did not match on skill-level.</p>";
+      $scoreBreakdown = $scoreBreakdown . "<p>You did not match on skill-level.<br><small>Skill-level is weighted very highly in our calculation.</small></p>";
     }
 
     $scoreBreakdown = "<small>" . $scoreBreakdown . "</small>";

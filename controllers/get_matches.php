@@ -113,8 +113,8 @@ foreach ($otherUsers_genPrefRows as $row) {
     if ($currentUser_answers[$i] == $otherUser_answers[$i]) { // answers match
       array_push($matchedOn, $i);
 
-      // special case: two managers
-      if ($currentUser_answers[$i] == "Manager" && $otherUser_answers[$i] == "Manager") {
+      if ($i == 5) { /* question 5 is play style: to have an "interesting" calculation, let's assume that same play 
+        styles clash, and different styles work well together */
         $score = $score - (10 * $weights[$i]);
       } else {
         $score = $score + (10 * $weights[$i]);

@@ -30,7 +30,7 @@ if ($takenGenPrefQuizBefore) {
 function renderActiveMatchesToDOM($res)
 {
   if (!$res) {
-    echo "You currently don't have any active matches.";
+    echo "<p class='text-center'>You currently don't have any active matches.</p>";
   } else {
     $s = $_SESSION;
     $uid = $s['user']['id'];
