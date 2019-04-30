@@ -255,6 +255,15 @@ a:hover {
 	color: rgba(255, 255, 255, 0.75);
 }
 
+/* Fixing col and row padding & margin overflow that was causing app to have width > viewport width, allowing the app to scroll sideways & resulting in very awk appearance */
+.row {
+	margin: 0;
+}
+.col-xs-12,
+.col-sm-12 {
+	padding: 0;
+}
+
 /* Smartphones */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 	body {

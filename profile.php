@@ -1,5 +1,6 @@
 <?php
 require_once('partials/header.php');
+require_once('config/db.php');
 require_once('resources/formatDateCreated.php');
 
 $s = $_SESSION;
@@ -61,7 +62,16 @@ if (!$steam && !$ps && !$xbox && !$nintendo) $gamerTagsPlaceholder = '<p>No game
 $bio = $profile['bio'];
 if (!$bio) $bio = 'No bio provided.';
 // games played
+$uid = $user['id'];
+$q = "SELECT game FROM matchrequests WHERE userID='$uid';";
+$res = mysqli_fetch_all(mysqli_query($conn, $q), MYSQLI_ASSOC);
 $gamesPlayed = 'No games played.';
+if ($res) {
+	$gamesPlayed = '';
+	foreach ($res as $r) {
+		$gamesPlayed = $gamesPlayed . $r['game'] . ", ";
+	}
+}
 // messages
 $profileUpdatedMsg = null;
 if (isset($_GET['updated'])) $profileUpdatedMsg = "<div class='alert alert-success text-center mx-auto' style='width: fit-content;'>Profile updated.</div>";
@@ -70,7 +80,7 @@ if (isset($_GET['password_changed'])) $passwordChangedMsg = "<div class='alert a
 ?>
 
 <div class="row">
-	<div class="col-xl-8 col-lg-10 col-md-12 col-sm-12 mx-auto">
+	<div class="col-xl-8 col-lg-10 col-md-12 col-sm-12 col-xs-12 mx-auto">
 		<div class="card lightCard">
 			<div class="card-header text-center">Profile</div>
 			<div class="card-body profileCardBody">
@@ -118,7 +128,7 @@ if (isset($_GET['password_changed'])) $passwordChangedMsg = "<div class='alert a
 						<!-- Games played -->
 						<div class="profileDiv">
 							<h5>Games Played</h5>
-							<p><?php echo $gamesPlayed; ?></p> <!-- placeholder -->
+							<p><?php echo $gamesPlayed; ?></p>
 						</div>
 					</div>
 					<!-- 3rd col -->
