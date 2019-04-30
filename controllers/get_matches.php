@@ -18,12 +18,25 @@ $currentUser_data = [
 ];
 $currentUser_data_JSON = json_encode($currentUser_data);
 
-// add user's match request to matchrequests table
-$q = "INSERT INTO matchrequests (userID, game, system, data) VALUES ('$currentUser_uid', '$currentUser_game', '$currentUser_system', '$currentUser_data_JSON');";
-$res = mysqli_query($conn, $q);
-if (!$res) { // failed
-  header("location: ../index.php?db_failure_contact_support");
-  exit();
+// check if user already made this or a similar request
+$q = "SELECT * FROM matchrequests WHERE userID='$currentUser_uid' AND game='$currentUser_game' AND system='$currentUser_system';";
+$res = mysqli_fetch_assoc(mysqli_query($conn, $q));
+
+if (!$res) { // if not a duplicate
+  // add user's match request to matchrequests table
+  $q = "INSERT INTO matchrequests (userID, game, system, data) VALUES ('$currentUser_uid', '$currentUser_game', '$currentUser_system', '$currentUser_data_JSON');";
+  $res = mysqli_query($conn, $q);
+  if (!$res) { // failed
+    header("location: ../index.php?db_failure_contact_support");
+    exit();
+  }
+} else { // is a duplicate
+  $q = "UPDATE matchrequests WHERE userID='$currentUser_uid' AND game='$currentUser_game' AND system='$currentUser_system' SET data='$currentUser_data_JSON';";
+  $res = mysqli_query($conn, $q);
+  if (!$res) { // failed
+    header("location: ../index.php?db_failure_contact_support");
+    exit();
+  }
 }
 // success ->
 

@@ -1,5 +1,6 @@
 <?php
 require_once('partials/header.php');
+require_once('resources/formatDateCreated.php');
 
 $s = $_SESSION;
 if (!isset($s['uid']) || !isset($s['email']) || !isset($s['username'])) {
@@ -31,53 +32,6 @@ function get_gravatar($email, $s = 80, $d = 'mp', $r = 'g', $img = false, $atts 
 		$url .= ' />';
 	}
 	return $url;
-}
-
-function formatDateCreated($datetime)
-{
-	$year = substr($datetime, 0, 4);
-	$month = substr($datetime, 5, 2);
-	$day = substr($datetime, 8, 2);
-
-	switch ($month) {
-		case '01':
-			$month = 'January';
-			break;
-		case '02':
-			$month = 'February';
-			break;
-		case '03':
-			$month = 'March';
-			break;
-		case '04':
-			$month = 'April';
-			break;
-		case '05':
-			$month = 'May';
-			break;
-		case '06':
-			$month = 'June';
-			break;
-		case '07':
-			$month = 'July';
-			break;
-		case '08':
-			$month = 'August';
-			break;
-		case '09':
-			$month = 'September';
-			break;
-		case '10':
-			$month = 'October';
-			break;
-		case '11':
-			$month = 'November';
-			break;
-		case '12':
-			$month = 'December';
-			break;
-	}
-	return "$month $day, $year";
 }
 
 $user = $s['user']; // user object

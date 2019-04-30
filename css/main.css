@@ -2,11 +2,11 @@
 :root {
 	--japaneseIndigo: #1d3e43;
 	--msuGreen: #1b393d; /* MSU Green - one shade darker than Japanese Indigo - used for btn hover/focus */
-	--wenge: #6a6353; /* Wenge - a kinda gray-brown-ish color */
-	--isabelline: #f1f0ef; /* the lightest shade of Wenge */
+	--wenge: rgb(106, 99, 83); /* Wenge - a kinda gray-brown-ish color */
+	--platinum: #e3e2df; /* second lightest shade of Wenge */
 	--raisinBlack: #262a21; /* rgb(38, 42, 33) - used for shadow on profil pic */
 	--eerieBlack: #1b1e18; /* one shade darker than Raisin Black, for the navbar gradient and btn hover/focus */
-	--turquoiseGreen: #9ccbbb;
+	--turquoiseGreen: rgb(156, 203, 187); /* #9ccbbb; */
 	--mediumJungleGreen: rgb(29, 52, 34); /* #1d3422; */
 }
 
@@ -58,7 +58,7 @@ a:hover {
 	outline: 0;
 }
 .navbar-toggler:focus {
-	outline-color: var(--turquoiseGreen);
+	outline-color: rgb(156, 203, 187, 0.75);
 }
 .navbar-toggler.collapsed:focus {
 	outline: none;
@@ -112,20 +112,50 @@ a:hover {
 	width: 16px;
 	margin-right: 0.5rem;
 }
-#howItWorksModal .modal-header,
-#howItWorksModal .modal-body,
-#howItWorksModal .modal-footer {
-	background-color: var(--isabelline);
+.dashboardCardBody h5 {
+	margin-top: 0.5rem;
+	margin-bottom: 1.25rem;
+}
+.dashboardCardBody .darkBtn {
+	width: 85%;
+	min-width: fit-content;
+}
+.activeMatchReqs button {
+	float: right;
+	padding: 0.3rem 0.5rem;
+	color: var(--raisinBlack);
+	font-weight: 600;
+	background-color: rgb(156, 203, 187, 0.5);
+}
+.activeMatchReqs button:hover,
+.activeMatchReqs button:focus {
+	background-color: rgb(156, 203, 187, 0.8);
+	transition: background-color 1s ease-out;
+	box-shadow: none;
+}
+.activeMatchReqs .list-group-item {
+	background-color: rgb(255, 255, 255, 0.2);
+	border-color: var(--wenge);
+}
+
+/* Light Modal */
+.lightModal .modal-header,
+.lightModal .modal-body,
+.lightModal .modal-footer {
+	background-color: var(--platinum);
 	border-color: rgb(106, 99, 83, 0.25); /* wenge in RGB, less than 1 opacity */
 }
-#howItWorksModal .modal-header .close {
+.lightModal .modal-header .close {
 	color: var(--wenge);
 }
-#howItWorksModal .modal-body {
+.lightModal .modal-body {
 	padding: 1rem 2rem 0;
 }
-#howItWorksModal .modal-body li {
+.lightModal .modal-body li {
 	margin-bottom: 0.5rem;
+}
+.lightModal .close:focus {
+	outline: none;
 }
 
 /* GenPrefQuiz */
@@ -139,6 +169,28 @@ a:hover {
 /* Select Game */
 .selectGameCardBody .form-check-inline {
 	margin-bottom: 1rem;
+}
+
+/* Display Matches */
+.displayMatchesCardBody .progress-bar {
+	background-color: var(--turquoiseGreen);
+}
+.displayMatchesCardBody .howWasThisCalc {
+	margin-top: 0.75rem;
+	cursor: pointer;
+}
+.displayMatchesCardBody .darkBtn {
+	min-width: fit-content;
+	width: 100%;
+}
+.displayMatchesCardBody button i {
+	color: inherit;
+}
+.displayMatchesCardBody .list-group-item {
+	margin-bottom: 1rem;
+}
+.howWasThisCalc a:focus {
+	outline: none;
 }
 
 /* Profile */
@@ -174,7 +226,8 @@ a:hover {
 
 /* Icons */
 .profileCardBody i,
-.editProfileCard i {
+.editProfileCard i,
+.displayMatchesCardBody i {
 	height: 16px;
 	width: 16px;
 	margin-right: 0.5rem;
@@ -222,6 +275,7 @@ a:hover {
 	/* Navbar */
 	#navbar {
 		margin-bottom: 0;
+		border-bottom: 1px solid rgb(156, 203, 187, 0.3);
 	}
 	.navbar-brand {
 		margin: 0;
@@ -250,6 +304,11 @@ a:hover {
 	/* Edit profile */
 	.editProfileCard h5 {
 		text-align: center;
+	}
+
+	/* Display Matches */
+	.displayMatchesCardBody .col-xs-12 {
+		padding: 0;
 	}
 
 	/* Light card */
