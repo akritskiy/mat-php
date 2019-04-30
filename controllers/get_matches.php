@@ -31,7 +31,7 @@ if (!$res) { // if not a duplicate
     exit();
   }
 } else { // is a duplicate
-  $q = "UPDATE matchrequests WHERE userID='$currentUser_uid' AND game='$currentUser_game' AND system='$currentUser_system' SET data='$currentUser_data_JSON';";
+  $q = "UPDATE matchrequests SET data='$currentUser_data_JSON' WHERE userID='$currentUser_uid' AND game='$currentUser_game' AND system='$currentUser_system';";
   $res = mysqli_query($conn, $q);
   if (!$res) { // failed
     header("location: ../index.php?db_failure_contact_support");

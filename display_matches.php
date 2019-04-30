@@ -71,7 +71,7 @@ function renderMatchesToDOM($res, $conn, $questions, $user_answers)
 
     $listItem = "
     <li class='list-group-item'>
-      <p><i class='fas fa-user-astronaut'></i><a href='/user.php?$otherUser_username'>$otherUser_dispName</a></p>
+      <p><i class='fas fa-user-astronaut'></i><a href='/user.php?user=$otherUser_username'>$otherUser_dispName</a></p>
       <p>Match score: $score%</p>
       <div class='progress'>
         <div class='progress-bar' role='progressbar' style='width: $score%' aria-valuenow='25' aria-valuemin='0' aria-valuemax='100'></div>
