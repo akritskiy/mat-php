@@ -128,6 +128,8 @@ foreach ($otherUsers_genPrefRows as $row) {
     "score" => $score,
     "otherUser_uid" => $otherUser_uid,
     "matchedOn" => $matchedOn,
+    "game" => $currentUser_game,
+    "system" => $currentUser_system
   ];
   array_push($result, $thisOtherUser_result);
 }

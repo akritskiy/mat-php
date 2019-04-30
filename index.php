@@ -12,10 +12,14 @@ if ($loggedIn) {
 
 $accountDeletedMsg = false;
 if (isset($_GET['account_deleted'])) $accountDeletedMsg = "<div class='alert alert-info' style='width: fit-content;'>Your account was deleted. We hope to see you again in the future. Take care!</div>";
+
+$linkInvalidMsg = false;
+if (isset($_GET['account_deleted'])) $accountDeletedMsg = "<div class='alert alert-danger' style='width: fit-content;'>That link is either invalid or expired. Please try again.</div>";
 ?>
 
 <div id="homepageJumbotron" class="jumbotron jumbotron-fluid">
-	<?php if ($accountDeletedMsg) echo $accountDeletedMsg; ?>
+	<?php if ($accountDeletedMsg) echo $accountDeletedMsg;
+	if ($linkInvalidMsg) echo $linkInvalidMsg; ?>
 	<h1 class="display-4">The free video game matchmaking service.</h1>
 	<p class="lead">Like Match.com, but for gaming.</p>
 	<p>You provide your personality information and gaming preferences. We find people for you to play with during your next gaming sesh.</p>

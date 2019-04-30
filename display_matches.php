@@ -97,6 +97,8 @@ function renderMatchesToDOM($res, $conn, $questions, $user_answers)
 
 $s = $_SESSION;
 $res = $s["newMatchResult"];
+$game = $res[0]['game'];
+$system = $res[0]['system'];
 ?>
 
 <div class="row">
@@ -113,8 +115,6 @@ $res = $s["newMatchResult"];
             <p class='text-center'><a class="btn darkBtn" href="/dashboard.php" role="button">Back to Dashboard</a></p>
           </div>
         </div>
-
-
       </div>
     </div>
   </div>
@@ -134,7 +134,7 @@ $res = $s["newMatchResult"];
         <p>Unfortunately, we haven't developed a messaging and notification feature yet. (Don't worry: it's coming soon.)</p>
         <p>You matched with these players because you're compatible in personality, playstyle, and skill level. You also both put out a seek for other players on Matchisuru. This means the gamers you matched with are expecting to be contacted in-game. We encourage you to DM your matches on the console or in-game and invite them to a gaming sesh.</p>
         <p>Having trouble writing that DM? Try something like this:</p>
-        <p>Hey, we matched on Matchisuru to play Dead by Daylight on PC with a pretty good match score. Are you on right now?</p>
+        <p>Hey, we matched on Matchisuru to play <?php echo $game . " on " . $system; ?> with a pretty good match score. Are you on right now?</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn darkBtn" data-dismiss="modal">Close</button>
