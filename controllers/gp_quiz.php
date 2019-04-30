@@ -10,7 +10,7 @@ if (!isset($p['submit_gp_quiz'])) { // route guard
 
 $numQuestions = 15;
 $answers = [];
-for ($i = 0; $i <= $numQuestions; $i++) {
+for ($i = 1; $i <= $numQuestions; $i++) {
   if (isset($p["Q$i"])) array_push($answers, $p["Q$i"]);
 }
 // Save answers in POST to an array, $answers. Values can be accessed by index. For example,

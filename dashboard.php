@@ -1,5 +1,6 @@
 <?php
 require_once('partials/header.php');
+require_once('config/db.php');
 
 if (!isset($_SESSION['uid']) || !isset($_SESSION['email']) || !isset($_SESSION['username'])) {
   // If any of [uid, email, username] are not set, redirect to login
@@ -7,10 +8,15 @@ if (!isset($_SESSION['uid']) || !isset($_SESSION['email']) || !isset($_SESSION['
   exit();
 }
 
+$s = $_SESSION;
+$uid = $s['user']['id'];
+$q = "SELECT * FROM generalpreferences WHERE userID='$uid' LIMIT 1;";
+$res = mysqli_fetch_assoc(mysqli_query($conn, $q));
 $takenGenPrefQuizBefore = false;
+if ($res) $takenGenPrefQuizBefore = true;
 $getMatchesLink = 'gp_quiz.php';
 if ($takenGenPrefQuizBefore) {
-  $getMatchesLink = '/choose_game.php';
+  $getMatchesLink = '/select_game.php';
 }
 ?>
 

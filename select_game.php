@@ -5,15 +5,15 @@ require_once('partials/header.php');
 $games = [
   "Apex Legends",
   "Fortnite",
-  "Overwatch",
   "League of Legends",
   "FIFA",
   "Call of Duty: Black Ops",
+  "Rocket League",
+  "Dead by Daylight"
+  // "Overwatch",
   // "DOTA 2",
   // "Counter-Strike: Global Offensive",
-  // "Rocket League",
   // "Garry's Mod",
-  // "Dead by Daylight",
   // "Factorio"
 ];
 sort($games);
