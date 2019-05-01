@@ -584,6 +584,335 @@ class Test extends TestCase
         $url = $this->location();
         $this->assertEquals('http://localhost/mat-php/password_reset.php?invalid_email', $url);
     }
+    
+     /** Test Case 21
+     * Method testViewUserProfile
+     * Test to check if user profile is visible to the player
+     */
+    public function testViewUserProfile()
+    {
+        // open | http://mat-php.herokuapp.com/profile.php |
+        $this->webDriver->get("http://mat-php.herokuapp.com/profile.php");
+        // click | link=Profile |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::linkText("Profile"))->click();
+        $url = $this->location();
+        $this->assertEquals('http://mat-php.herokuapp.com/profile.php', $url);
+    }
+
+    /** Test Case 22
+     * Method testGameSpecificQuestionnaireInSafariBrowser
+     * Test to check if the game specific questionnaire displays and works properly in Safari Browser
+     */
+    public function testGameSpecificQuestionnaireInSafariBrowser()
+    {
+        // open | http://mat-php.herokuapp.com/dashboard.php |
+        $this->webDriver->get("http://mat-php.herokuapp.com/dashboard.php");
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='How it works'])[1]/following::button[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='How it works'])[1]/following::button[1]"))->click();
+        // click | name=chooseGame |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::name("chooseGame"))->click();
+        // select | name=chooseGame | label=Call of Duty: Black Ops
+        $this->getSelect($this->webDriver->findElement(WebDriver\WebDriverBy::name("chooseGame")))->selectByVisibleText("Call of Duty: Black Ops");
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Intermediate'])[1]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Intermediate'])[1]/following::label[1]"))->click();
+        // click | id=startTime |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("startTime"))->click();
+        // select | id=startTime | label=1:00am
+        $this->getSelect($this->webDriver->findElement(WebDriver\WebDriverBy::id("startTime")))->selectByVisibleText("1:00am");
+        // click | id=endTime |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("endTime"))->click();
+        // select | id=endTime | label=3:00am
+        $this->getSelect($this->webDriver->findElement(WebDriver\WebDriverBy::id("endTime")))->selectByVisibleText("3:00am");
+        // click | name=system |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::name("system"))->click();
+        // select | name=system | label=PS4
+        $this->getSelect($this->webDriver->findElement(WebDriver\WebDriverBy::name("system")))->selectByVisibleText("PS4");
+        // click | name=submit_select_game |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::name("submit_select_game"))->click();
+        $url = $this->location();
+        $this->assertEquals('http://mat-php.herokuapp.com/display_matches.php', $url);
+    }
+
+    /** Test Case 23
+     * Method testGeneralPreferencesQuestionnaireInSafariBrowser
+     * Test to check if general gaming preferences questionnaire displays and works properly in the Safari browser
+     */
+    public function testGeneralPreferencesQuestionnaireInSafariBrowser()
+    {
+        // open | http://mat-php.herokuapp.com/profile.php |
+        $this->webDriver->get("http://mat-php.herokuapp.com/profile.php");
+        // click | link=Retake Gaming Preferences Quiz |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::linkText("Retake Gaming Preferences Quiz"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Loud'])[1]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Loud'])[1]/following::label[1]"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Loud'])[2]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Loud'])[2]/following::label[1]"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Agree'])[1]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Agree'])[1]/following::label[1]"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Agree'])[2]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Agree'])[2]/following::label[1]"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Disagree'])[2]/following::label[2] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Disagree'])[2]/following::label[2]"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Wanderer'])[1]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Wanderer'])[1]/following::label[1]"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Agree'])[3]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Agree'])[3]/following::label[1]"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Winning at all costs'])[1]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Winning at all costs'])[1]/following::label[1]"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='A serious gamer'])[1]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='A serious gamer'])[1]/following::label[1]"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Red'])[1]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Red'])[1]/following::label[1]"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Turtle'])[1]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Turtle'])[1]/following::label[1]"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Fiction'])[1]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Fiction'])[1]/following::label[1]"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Soda'])[1]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Soda'])[1]/following::label[1]"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Reality'])[1]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Reality'])[1]/following::label[1]"))->click();
+        // click | name=submit_gp_quiz |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::name("submit_gp_quiz"))->click();
+        // click | name=chooseGame |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::name("chooseGame"))->click();
+        // select | name=chooseGame | label=Fortnite
+        $this->getSelect($this->webDriver->findElement(WebDriver\WebDriverBy::name("chooseGame")))->selectByVisibleText("Fortnite");
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Beginner'])[1]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Beginner'])[1]/following::label[1]"))->click();
+        // click | name=submit_select_game |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::name("submit_select_game"))->click();
+        $url = $this->location();
+        $this->assertEquals('http://mat-php.herokuapp.com/display_matches.php', $url);
+    }
+
+    /** Test Case 24
+     * Method testResetPasswordFunction
+     * Test if the reset password function works properly
+     */
+    public function testResetPasswordFunction()
+    {
+        // open | http://mat-php.herokuapp.com/profile.php |
+        $this->webDriver->get("http://mat-php.herokuapp.com/profile.php");
+        // click | link=Change Password |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::linkText("Change Password"))->click();
+        // click | id=password |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("password"))->click();
+        // type | id=password | Password1
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("password"))->sendKeys("Password1");
+        // click | id=password2 |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("password2"))->click();
+        // type | id=password2 | Password1
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("password2"))->sendKeys("Password1");
+        // click | name=change-password |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::name("change-password"))->click();
+        $url = $this->location();
+        $this->assertEquals('http://mat-php.herokuapp.com/profile.php?password_changed', $url);
+    }
+
+    /** Test Case 25
+     * Method testUpdateProfileFunctionInChromeBrowser
+     * Test if the update profile function displays and works properly in Chrome browser
+     */
+    public function testUpdateProfileFunctionInChromeBrowser()
+    {
+        // open | http://mat-php.herokuapp.com/profile.php?password_changed |
+        $this->webDriver->get("http://mat-php.herokuapp.com/profile.php?password_changed");
+        // click | link=Edit Profile |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::linkText("Edit Profile"))->click();
+        // click | id=steam |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("steam"))->click();
+        // type | id=steam | ptam
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("steam"))->sendKeys("ptam");
+        // click | id=nintendo |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("nintendo"))->click();
+        // type | id=nintendo | ptam
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("nintendo"))->sendKeys("ptam");
+        // click | id=bio |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("bio"))->click();
+        // type | id=bio | Huge Gamer
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("bio"))->sendKeys("Huge Gamer");
+        // click | name=save |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::name("save"))->click();
+        $url = $this->location();
+        $this->assertEquals('http://mat-php.herokuapp.com/profile.php?updated', $url);
+    }
+
+    /** Test Case 26
+     * Method testUpdateProfileFunctionInSafariBrowser
+     * Test if the update profile function displays and works properly in the Safari browser
+     */
+    public function testUpdateProfileFunctionInSafariBrowser()
+    {
+        // open | http://mat-php.herokuapp.com/profile.php?updated |
+        $this->webDriver->get("http://mat-php.herokuapp.com/profile.php?updated");
+        // click | link=Edit Profile |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::linkText("Edit Profile"))->click();
+        // click | id=steam |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("steam"))->click();
+        // type | id=steam | ptam6
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("steam"))->sendKeys("ptam6");
+        // click | id=insta |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("insta"))->click();
+        // type | id=insta | ptam
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("insta"))->sendKeys("ptam");
+        // click | id=fb |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("fb"))->click();
+        // type | id=fb | ptam
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("fb"))->sendKeys("ptam");
+        // click | name=save |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::name("save"))->click();
+        $url = $this->location();
+        $this->assertEquals('http://mat-php.herokuapp.com/profile.php?updated', $url);
+    }
+
+    /** Test Case 27
+     * Method testGameSpecificQuestionnaireInChromeBrowser
+     * Test if game specific questionnaire displays and works properly in Chrome browser
+     */
+    public function testGameSpecificQuestionnaireInChromeBrowser()
+    {
+        // open | http://mat-php.herokuapp.com/select_game.php |
+        $this->webDriver->get("http://mat-php.herokuapp.com/select_game.php");
+        // click | link=Dashboard |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::linkText("Dashboard"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='How it works'])[1]/following::button[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='How it works'])[1]/following::button[1]"))->click();
+        // click | name=chooseGame |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::name("chooseGame"))->click();
+        // select | name=chooseGame | label=Fortnite
+        $this->getSelect($this->webDriver->findElement(WebDriver\WebDriverBy::name("chooseGame")))->selectByVisibleText("Fortnite");
+        // click | id=Elite |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("Elite"))->click();
+        // click | id=startTime |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("startTime"))->click();
+        // select | id=startTime | label=2:00pm
+        $this->getSelect($this->webDriver->findElement(WebDriver\WebDriverBy::id("startTime")))->selectByVisibleText("2:00pm");
+        // click | id=endTime |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("endTime"))->click();
+        // select | id=endTime | label=3:00pm
+        $this->getSelect($this->webDriver->findElement(WebDriver\WebDriverBy::id("endTime")))->selectByVisibleText("3:00pm");
+        // click | id=timeZone |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("timeZone"))->click();
+        // select | id=timeZone | label=CST
+        $this->getSelect($this->webDriver->findElement(WebDriver\WebDriverBy::id("timeZone")))->selectByVisibleText("CST");
+        // click | name=system |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::name("system"))->click();
+        // select | name=system | label=Xbox One
+        $this->getSelect($this->webDriver->findElement(WebDriver\WebDriverBy::name("system")))->selectByVisibleText("Xbox One");
+        // click | name=submit_select_game |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::name("submit_select_game"))->click();
+        $url = $this->location();
+        $this->assertEquals('http://mat-php.herokuapp.com/display_matches.php', $url);
+    }
+
+
+    /** Test Case 28
+     * Method testGeneralPreferencesQuestionnaireInChromeBrowser
+     * Test if the general preferences questionnaire displays and works properly in the Chrome browser
+     */
+    public function testGeneralPreferencesQuestionnaireInChromeBrowser()
+    {
+        // open | http://mat-php.herokuapp.com/profile.php?updated |
+        $this->webDriver->get("http://mat-php.herokuapp.com/profile.php?updated");
+        // click | link=Retake Gaming Preferences Quiz |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::linkText("Retake Gaming Preferences Quiz"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Loud'])[1]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Loud'])[1]/following::label[1]"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Loud'])[2]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Loud'])[2]/following::label[1]"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Hanging out and having fun'])[1]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Hanging out and having fun'])[1]/following::label[1]"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Support'])[1]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Support'])[1]/following::label[1]"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Yellow'])[1]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Yellow'])[1]/following::label[1]"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Tea'])[1]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Tea'])[1]/following::label[1]"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Rabbit'])[1]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Rabbit'])[1]/following::label[1]"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Ravenclaw'])[1]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Ravenclaw'])[1]/following::label[1]"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Fantasy'])[1]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Fantasy'])[1]/following::label[1]"))->click();
+        // click | name=submit_gp_quiz |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::name("submit_gp_quiz"))->click();
+        // click | name=chooseGame |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::name("chooseGame"))->click();
+        // select | name=chooseGame | label=Dead by Daylight
+        $this->getSelect($this->webDriver->findElement(WebDriver\WebDriverBy::name("chooseGame")))->selectByVisibleText("Dead by Daylight");
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Beginner'])[1]/following::label[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Beginner'])[1]/following::label[1]"))->click();
+        // click | id=endTime |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("endTime"))->click();
+        // select | id=endTime | label=11:00am
+        $this->getSelect($this->webDriver->findElement(WebDriver\WebDriverBy::id("endTime")))->selectByVisibleText("11:00am");
+        // click | id=startTime |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("startTime"))->click();
+        // select | id=startTime | label=5:00pm
+        $this->getSelect($this->webDriver->findElement(WebDriver\WebDriverBy::id("startTime")))->selectByVisibleText("5:00pm");
+        // click | id=timeZone |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("timeZone"))->click();
+        // select | id=timeZone | label=CST
+        $this->getSelect($this->webDriver->findElement(WebDriver\WebDriverBy::id("timeZone")))->selectByVisibleText("CST");
+        // click | name=system |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::name("system"))->click();
+        // select | name=system | label=Nintendo Switch
+        $this->getSelect($this->webDriver->findElement(WebDriver\WebDriverBy::name("system")))->selectByVisibleText("Nintendo Switch");
+        // click | name=submit_select_game |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::name("submit_select_game"))->click();
+        $url = $this->location();
+        $this->assertEquals('http://mat-php.herokuapp.com/display_matches.php', $url);
+    }
+
+
+    /** Test Case 29
+     * Method testDeleteAccountFunctionInChromeBrowser
+     * Test if the delete account function displays and properly deletes the account in Chrome browser
+     */
+    public function testDeleteAccountFunctionInChromeBrowser()
+    {
+        // open | http://mat-php.herokuapp.com/dashboard.php |
+        $this->webDriver->get("http://mat-php.herokuapp.com/dashboard.php");
+        // click | link=Profile |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::linkText("Profile"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Games Played'])[1]/following::div[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Games Played'])[1]/following::div[1]"))->click();
+        // click | link=Delete Account |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::linkText("Delete Account"))->click();
+        // click | id=password |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("password"))->click();
+        // type | id=password | Password
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("password"))->sendKeys("Password");
+        // click | name=delete-account |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::name("delete-account"))->click();
+        $url = $this->location();
+        $this->assertEquals('http://mat-php.herokuapp.com/controllers/delete_account.php', $url);
+    }
+
+    /** Test Case 30
+     * Method testDeleteAccountFunctionInChromeBrowser
+     * Test if the delete account function displays and properly deletes the account in Safari browser
+     */
+    public function testDeleteAccountFunctionInSafariBrowser()
+    {
+        // open | http://mat-php.herokuapp.com/dashboard.php |
+        $this->webDriver->get("http://mat-php.herokuapp.com/dashboard.php");
+        // click | link=Profile |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::linkText("Profile"))->click();
+        // click | xpath=(.//*[normalize-space(text()) and normalize-space(.)='Games Played'])[1]/following::div[1] |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::xpath("(.//*[normalize-space(text()) and normalize-space(.)='Games Played'])[1]/following::div[1]"))->click();
+        // click | link=Delete Account |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::linkText("Delete Account"))->click();
+        // click | id=password |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("password"))->click();
+        // type | id=password | Password
+        $this->webDriver->findElement(WebDriver\WebDriverBy::id("password"))->sendKeys("Password");
+        // click | name=delete-account |
+        $this->webDriver->findElement(WebDriver\WebDriverBy::name("delete-account"))->click();
+        $url = $this->location();
+        $this->assertEquals('http://mat-php.herokuapp.com/controllers/delete_account.php', $url);
+    }
+    
     /**
      * Close the current window.
      */
