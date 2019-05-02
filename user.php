@@ -46,6 +46,7 @@ $username = $g['user'];
 $q = "SELECT * FROM users WHERE username='$username' LIMIT 1;";
 $user = mysqli_fetch_assoc(mysqli_query($conn, $q));
 $uid = $user['id'];
+$email = $user['email'];
 // get profile object from DB
 $q = "SELECT * FROM profiles WHERE userID='$uid' LIMIT 1;";
 $profile = mysqli_fetch_assoc(mysqli_query($conn, $q));
@@ -108,7 +109,7 @@ if (isset($_GET['password_changed'])) $passwordChangedMsg = "<div class='alert a
 						<!-- Email -->
 						<div class="profileDiv">
 							<h5>Email</h5>
-							<p><i class="fas fa-envelope-square"></i><?php echo $s['email']; ?></p>
+							<p><i class="fas fa-envelope-square"></i><?php echo $email; ?></p>
 						</div>
 						<!-- Bio -->
 						<div class="profileDiv">

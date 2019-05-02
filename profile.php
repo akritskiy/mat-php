@@ -105,7 +105,7 @@ if (isset($_GET['password_changed'])) $passwordChangedMsg = "<div class='alert a
 						</div>
 					</div>
 					<!-- 2nd col -->
-					<div class="col-sm-12 col-md-4">
+					<div class="col-sm-12 col-md-4 profileMidCol">
 						<!-- Gamer Tags -->
 						<div class="profileDiv">
 							<h5>Gamer Tags</h5>

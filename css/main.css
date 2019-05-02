@@ -20,6 +20,9 @@ body {
 		fixed;
 	background-size: cover;
 }
+.row {
+	max-width: 100vw;
+}
 a {
 	color: inherit;
 }
@@ -223,6 +226,14 @@ a:hover {
 	min-width: fit-content;
 	width: 11rem;
 }
+.profileCardBody .profileMidCol {
+	padding: 0 1.5rem;
+}
+
+/* Edit Profile */
+.editProfileCard .col-xs-12 {
+	padding: 0 1.5rem;
+}
 
 /* Icons */
 .profileCardBody i,
@@ -253,15 +264,6 @@ a:hover {
 .lightCard .card-header {
 	background-color: var(--raisinBlack);
 	color: rgba(255, 255, 255, 0.75);
-}
-
-/* Fixing col and row padding & margin overflow that was causing app to have width > viewport width, allowing the app to scroll sideways & resulting in very awk appearance */
-.row {
-	margin: 0;
-}
-.col-xs-12,
-.col-sm-12 {
-	padding: 0;
 }
 
 /* Smartphones */
